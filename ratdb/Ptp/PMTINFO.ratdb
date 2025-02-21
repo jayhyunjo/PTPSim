@@ -15,3 +15,22 @@
   "type":  [1,]
 }
 
+{
+name: "PMT",
+index: "sipm",
+valid_begin: [0,0],
+construction: "lappd",
+
+glass_material: "glass",
+pmt_vacuum_material: "pmt_vacuum",
+photocathode_surface: "photocathode_sipm",
+
+glass_thickness: 1.0, // mm
+
+width: 60, //mm
+thick: 10, //mm
+
+noise_rate: 10000.0, // Hz
+}
+
+

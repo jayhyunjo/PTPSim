@@ -1,8 +1,8 @@
 {
 name: "GEO",
 index: "world",
-valid_begin: [0, 0],
-valid_end: [0, 0],
+valid_begin: [0.0, 0.0],
+valid_end: [0.0, 0.0],
 mother: "", // world volume has no mother
 type: "box",
 size: [400.0, 400.0, 400.0], // mm, half-length
@@ -13,14 +13,14 @@ invisible: 1,
 {
 name: "GEO",
 index: "inner_surface",
-valid_begin: [0, 0],
-valid_end: [0, 0],
+valid_begin: [0.0, 0.0],
+valid_end: [0.0, 0.0],
 mother: "world",
 type: "box",
-size: [300,300,300],
+size: [300.0,300.0,300.0],
 position: [0.0, 0.0, 0.0],
 material: "liquid_Ar",
-color: [0.4, 0.4, 0.6, 0.3],
+color:[0.42, 0.47, 0.57, 0.95] // blue
 drawstyle: "solid"
 }
 
@@ -31,14 +31,14 @@ drawstyle: "solid"
 {
   name: "GEO",
   index: "PTP",
-  valid_begin: [0, 0],
-  valid_end: [0, 0],
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
   size: [3.0, 100.0, 100.0],
   position: [-9.5, 0.0, 0.0],
   material: "PTP",
-  color: [1.0, 0.0, 0.0, 0.3],
+  color:[1.0, 0.0, 0.0, 0.9] // red
   drawstyle: "solid"
 }
 
@@ -48,14 +48,14 @@ drawstyle: "solid"
 {
   name: "GEO",
   index: "WLS",
-  valid_begin: [0, 0],
-  valid_end: [0, 0],
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
   size: [3.0, 100.0, 100.0],
   position: [2.5, 0.0, 0.0],
   material: "eljen_WLSP",
-  color: [0.4, 0.4, 0.6, 0.3],
+  color:[0.0, 1.0, 0.0, 0.9] // green
   drawstyle: "solid"
 }
 
@@ -65,28 +65,29 @@ drawstyle: "solid"
 {
   name: "GEO",
   index: "reflector",
-  valid_begin: [0, 0],
-  valid_end: [0, 0],
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
   size: [0.5, 100.0, 100.0],
   position: [12.0, 0.0, 0.0],
   material: "Reflect",
-  color: [1.0, 1.0, 1.0, 0.3],
+  color:[1.0, 1.0, 1.0, 0.9] // white
   drawstyle: "solid"
 }
 {
   name: "GEO",
   index: "sipm_side",
-  valid_begin: [0, 0],
-  valid_end: [0, 0],
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "pmtarray",
-  pmt_model: "lappd",
+  pmt_model: "sipm",
   pmt_detector_type: "idpmt",
   sensitive_detector: "/mydet/pmt/inner",
-  efficiency_correction: 1.000,
+  //efficiency_correction: 1.000,
   pos_table: "PMTINFO_sipm", //generated on the fly
+  color: [0.8, 0.8, 0.8, 1.0] // light gray
   orientation: "manual",
 }
 
