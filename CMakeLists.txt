@@ -111,8 +111,8 @@ configure_file(${CMAKE_SOURCE_DIR}/config/ptp.sh.in
 install(DIRECTORY ratdb/ DESTINATION ${PTPSHARE}/ratdb
   PATTERN "ratdb/*")
 
-install(DIRECTORY models/ DESTINATION ${PTPSHARE}/models
-  PATTERN "models/*")
+#install(DIRECTORY models/ DESTINATION ${PTPSHARE}/models
+#  PATTERN "models/*")
 
 # Install the python files
 install(DIRECTORY utilities/ DESTINATION ${PTPSHARE}/utilities

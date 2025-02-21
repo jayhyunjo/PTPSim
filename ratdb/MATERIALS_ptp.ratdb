@@ -1,0 +1,71 @@
+{
+name: "MATERIAL",
+index: "photocathode_sipm",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+density: 5.0,
+nelements: 1,
+nmaterials: 0,
+elements: ["Potassium"],
+elemprop: [1.0],
+}
+
+{
+name: "MATERIAL",
+index: "BK270",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+density: 2.2,
+nelements: 2,
+nmaterials: 0,
+elements: ["Silicon", "Oxygen",],
+elemprop: [0.4675, 0.5325],
+}
+
+{
+  name: "MATERIAL",
+  index: "Reflect",
+  valid_begin: [0, 0],
+  valid_end: [0, 0],
+  density: 2.70,             // density in g/cm³ for aluminum
+  nelements: 1,
+  nmaterials: 0,
+  elements: ["Aluminum"],
+  elemprop: [1.0]
+}
+{
+  name: "MATERIAL",
+  index: "PTP",
+  valid_begin: [0, 0],
+  valid_end: [0, 0],
+  density: 1.20,             // typical density for an organic scintillator in g/cm³
+  nelements: 2,
+  nmaterials: 0,
+  elements: ["Hydrogen", "Carbon"],
+  // For an aromatic organic material, assume roughly 90% C and 10% H by weight
+  elemprop: [0.90, 0.10]
+}
+{
+  name: "MATERIAL",
+  index: "LAr",
+  valid_begin: [0, 0],
+  valid_end: [0, 0],
+  density: 1.40,             // typical density for liquid argon at ~87 K in g/cm³
+  nelements: 1,
+  nmaterials: 0,
+  elements: ["Argon"],
+  elemprop: [1.0]
+}
+{
+  name: "MATERIAL",
+  index: "EJ286",
+  valid_begin: [0, 0],
+  valid_end: [0, 0],
+  density: 1.03,             // typical density for plastic scintillator in g/cm³
+  nelements: 2,
+  nmaterials: 0,
+  elements: ["Carbon", "Hydrogen"],
+  // Approximate weight fractions for a CH-based scintillator (e.g. polyvinyltoluene): ~85% C, ~15% H
+  elemprop: [0.85, 0.15]
+}
+

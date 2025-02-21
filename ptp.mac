@@ -19,28 +19,30 @@
 # All photon energies are in SI units (Joules) and 128 nm corresponds to ~1.55e-18 J.
 #------------------------------------------------------------
 
-# Initialize the geometry (assuming the GEO file with layered structure is loaded)
- /rat/geometry/initialize
+/glg4debug/glg4param omit_muon_processes  0.0
+/glg4debug/glg4param omit_hadronic_processes  0.0
 
-# --- Set up the photon bomb ---
-# Select optical photon as the particle type
-/rat/generator/setParticle opticalphoton
+#set the detector parameters
+/rat/db/set DETECTOR experiment "Ptp"
+/rat/db/set DETECTOR geo_file "Ptp/ptp2.geo"
 
-# Set photon energy corresponding to 128 nm (~1.55e-18 Joules)
- /rat/generator/setPhotonEnergy 1.55e-18
+/run/initialize
+/tracking/storeTrajectory 1
 
-# Set the photon bomb position to just outside the PTP layer, on the side away from the reflector.
-# PTP extends from x = -12.5 to -6.5 mm, so choose x = -13.0 mm.
- /rat/parameter/set BombPosX -13.0
-/rat/generator/setPosition ${BombPosX} 0.0 0.0
+# BEGIN EVENT LOOP
+/rat/proc splitevdaq
+/rat/proc count
+/rat/procset update 10
 
-# Set the emission to be isotropic
- /rat/generator/setIsotropic true
+/rat/proclast outroot
 
-# Generate the photon bomb with, for example, 10000 photons
- /rat/generator/generate 10000
+##### GENERATORS #################
+/generator/add combo pbomb:point:poisson
+/generator/vtx/set 1000 128 # 1000 photons, 128nm
+/generator/pos/set 0.0 0.0 0.0
+
 
 # Begin the run (1 event)
- /rat/run/beamOn 1
+/run/beamOn 1
 
 

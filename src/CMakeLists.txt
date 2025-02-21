@@ -5,7 +5,10 @@ add_library( PTP SHARED
   HitmanProc.cc
   NtupleProc.cc
   LaserballGenerator.cc
+  sipmConstruction.cc
 )
+
+include_directories(include)
 
 target_include_directories( PTP PUBLIC
   $<BUILD_INTERFACE:${PTP_INCLUDE_DIR}>
