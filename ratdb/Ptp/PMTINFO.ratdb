@@ -23,7 +23,7 @@ construction: "lappd",
 
 glass_material: "glass",
 pmt_vacuum_material: "pmt_vacuum",
-photocathode_surface: "photocathode_sipm",
+photocathode_surface: "photocathode_R11065",
 
 glass_thickness: 1.0, // mm
 
