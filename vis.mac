@@ -54,6 +54,7 @@
 
 /rat/proc count
 /rat/procset update 1
+/rat/proclast outroot                                                                                                                                
 
 ##### GENERATORS #################
 #/generator/add combo gun:point:poisson
@@ -62,7 +63,7 @@
 
 ##### GENERATORS #################
 /generator/add combo pbomb:point:poisson
-/generator/vtx/set 1000 400 # 1000 photons, 128nm
+/generator/vtx/set 1000 128 # 1000 photon, 128nm
 /generator/pos/set -13.5 0.0 0.0
 
 ##### RUN ###########

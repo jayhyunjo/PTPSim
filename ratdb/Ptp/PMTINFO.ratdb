@@ -33,4 +33,3 @@ thick: 10, //mm
 noise_rate: 10000.0, // Hz
 }
 
-

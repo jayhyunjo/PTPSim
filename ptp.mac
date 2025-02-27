@@ -38,11 +38,11 @@
 
 ##### GENERATORS #################
 /generator/add combo pbomb:point:poisson
-/generator/vtx/set 1000 128 # 1000 photons, 128nm
-/generator/pos/set 0.0 0.0 0.0
+/generator/vtx/set 1 128 # 1000 photons, 128nm
+/generator/pos/set -13.0 0.0 0.0
 
 
 # Begin the run (1 event)
-/run/beamOn 1
+/run/beamOn 1000
 
 

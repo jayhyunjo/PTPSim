@@ -19,15 +19,14 @@ mother: "world",
 type: "box",
 size: [300.0,300.0,300.0],
 position: [0.0, 0.0, 0.0],
-material: "liquid_Ar",
+material: "LAr",
 color:[0.42, 0.47, 0.57, 0.95] // blue
 drawstyle: "solid"
 }
 
-
-// Daughter layer: PTP (6 mm thick → half-thickness = 3 mm)
+// Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
 // Positioned on the leftmost side of the layered structure.
-// It extends from x = -12.5 to -6.5 mm (center at -9.5 mm).
+// It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
 {
   name: "GEO",
   index: "PTP",
@@ -35,16 +34,33 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [3.0, 100.0, 100.0],
-  position: [-9.5, 0.0, 0.0],
+  size: [0.1, 100.0, 100.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+  position: [-12.6, 0.0, 0.0],
   material: "PTP",
   color:[1.0, 0.0, 0.0, 0.9] // red
   drawstyle: "solid"
 }
 
+// Daughter layer: Substrate (Acrylic) (6 mm thick → half-thickness = 3 mm)
+// Positioned on the leftmost side of the layered structure.
+// It extends from x = -12.5 to -6.5 mm (center at -9.5 mm).
+{
+  name: "GEO",
+  index: "substrate",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [3.0, 100.0, 100.0],
+  position: [-9.5, 0.0, 0.0],
+  material: "Acrylic",
+  color:[1.0, 0.5, 0.5, 0.9] // ?
+  drawstyle: "solid"
+}
+
 // Daughter layer: WLS (6 mm thick → half-thickness = 3 mm)
-// Positioned such that it does not touch the PTP layer, leaving a 6 mm gap.
-// Here, WLS is centered at x = +2.5 mm, so it extends from -0.5 to +5.5 mm.
+// Positioned such that it does not touch the PTP/Substrate layer, leaving a 2 mm gap (LAr will fill in this gap).
+// Here, WLS is centered at x = -1.5 mm, so it extends from -4.5 to 1.5 mm.
 {
   name: "GEO",
   index: "WLS",
@@ -53,15 +69,16 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "box",
   size: [3.0, 100.0, 100.0],
-  position: [2.5, 0.0, 0.0],
-  material: "eljen_WLSP",
+  position: [-1.5, 0.0, 0.0],
+  //material: "eljen_WLSP", // Pre-defined in ratpac-two
+  material: "EJ286", // Manually defined
   color:[0.0, 1.0, 0.0, 0.9] // green
   drawstyle: "solid"
 }
 
 // Daughter layer: Reflector (1 mm thick → half-thickness = 0.5 mm)
-// Positioned on the far right, leaving a 6 mm gap between WLS and Reflector.
-// Its center is at x = +12.0 mm, so it extends from +11.5 to +12.5 mm.
+// Positioned on the far right, leaving no gap between WLS and Reflector.
+// Its center is at x = 2.0 mm, so it extends from 1.5 to 2.5 mm.
 {
   name: "GEO",
   index: "reflector",
@@ -70,11 +87,12 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "box",
   size: [0.5, 100.0, 100.0],
-  position: [12.0, 0.0, 0.0],
+  position: [2.0, 0.0, 0.0],
   material: "Reflect",
   color:[1.0, 1.0, 1.0, 0.9] // white
   drawstyle: "solid"
 }
+
 {
   name: "GEO",
   index: "sipm_side",
@@ -90,6 +108,3 @@ drawstyle: "solid"
   color: [0.8, 0.8, 0.8, 1.0] // light gray
   orientation: "manual",
 }
-
-
-

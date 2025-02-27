@@ -5,8 +5,7 @@ add_library( PTP SHARED
   HitmanProc.cc
   NtupleProc.cc
   LaserballGenerator.cc
-  sipmConstruction.cc
-)
+  )
 
 include_directories(include)
 

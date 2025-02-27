@@ -1,0 +1,210 @@
+// BK270
+{
+name: "OPTICS",
+index: "BK270",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RINDEX_value2: [1.82, 1.64, 1.55, 1.523, 1.515, 1.510, 1.506, 1.504, 1.502],
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Opaque in the deep UV then very transparent in the visible
+ABSLENGTH_value2: [0.0001, 0.001, 0.10, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0, 1000.0],
+
+RSLENGTH_option: "wavelength",
+RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RSLENGTH_value2: [4.45, 71.2, 360.0, 1139.0, 2780.0, 5768.0, 10680.0, 18220.0, 29165.0],
+
+SCINTILLATION_option: "wavelength",
+SCINTILLATION_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Non-emissive
+SCINTILLATION_value2: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+SCINTILLATION_WLS_option: "wavelength",
+SCINTILLATION_WLS_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Non-emissive
+SCINTILLATION_WLS_value2: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
+REEMISSION_PROB_value2: [0.0, 0.0, 0.0, 0.0],  
+
+PROPERTY_LIST: ["RINDEX", "ABSLENGTH", "RSLENGTH", "SCINTILLATION", "SCINTILLATION_WLS", "REEMISSION_PROB"]
+}
+
+// EJ286
+{
+name: "OPTICS",
+index: "EJ286",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+
+LIGHT_YIELD: 0.0
+
+RINDEX_option: "wavelength",
+RINDEX_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RINDEX_value2: [1.63, 1.61, 1.59, 1.58, 1.575, 1.57, 1.565, 1.562, 1.560],
+
+ABSLENGTH_option: "wavelength",
+ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Moderate UV absorption, then increasing transparency in the visible
+ABSLENGTH_value2: [0.00005, 0.001, 0.05, 1.0, 5.0, 15.0, 25.0, 35.0, 45.0],
+
+RSLENGTH_option: "wavelength",
+RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RSLENGTH_value2: [3.31, 52.9, 268.0, 847.0, 2067.0, 4287.0, 7944.0, 13550.0, 21662.0],
+
+SCINTILLATION_option: "wavelength",
+SCINTILLATION_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Broad emission peaking near 400-500 nm
+SCINTILLATION_value2: [0.0, 0.0, 0.30, 0.95, 0.80, 0.20, 0.05, 0.0, 0.0],
+
+SCINTILLATION_WLS_option: "wavelength",
+SCINTILLATION_WLS_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Broad emission peaking near 400-500 nm
+SCINTILLATION_WLS_value2: [0.0, 0.0, 0.30, 0.95, 0.80, 0.20, 0.05, 0.0, 0.0],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
+REEMISSION_PROB_value2: [1.0, 1.0, 1.0, 1.0],
+
+PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "ABSLENGTH", "RSLENGTH", "SCINTILLATION", "SCINTILLATION_WLS", "REEMISSION_PROB"]
+}
+
+// PTP
+{
+name: "OPTICS",
+index: "PTP",
+valid_begin: [0, 0],
+valid_end: [0, 0],
+
+LIGHT_YIELD: 0
+RINDEX_option: "wavelength",
+//RINDEX_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+//RINDEX_value2: [1.70, 1.67, 1.66, 1.65, 1.645, 1.640, 1.635, 1.630, 1.628],
+// Values from Wei's
+RINDEX_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
+RINDEX_value2: [1.65, 1.65, 1.65, 1.65, 1.65, 1.65, 1.65, 1.65],
+
+SCINTILLATION_option: "dy_wavelength",
+//SCINTILLATION_value1: [ 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Emission peaking in the near-UV (roughly 300-400 nm)
+//SCINTILLATION_value2: [0.0, 0.80, 0.60, 0.10, 0.0, 0.0, 0.0, 0.0],
+// Values from Wei's
+SCINTILLATION_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
+SCINTILLATION_value2: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+
+SCINTILLATION_WLS_option: "dy_wavelength",
+//SCINTILLATION_WLS_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Emission peaking in the near-UV (roughly 300-400 nm)
+//SCINTILLATION_WLS_value2: [0.0, 0.0, 0.80, 0.60, 0.10, 0, 0, 0, 0],
+// Values from Wei's
+SCINTILLATION_WLS_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
+SCINTILLATION_WLS_value2: [0.0, 0.0, 0.0, 0.0005, 0.022, 0.002, 0.0005, 0.0],
+
+
+ABSLENGTH_option: "wavelength",
+//ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+// Stronger UV absorption, moderately transparent in the visible
+//ABSLENGTH_value2: [0.00002, 0.0005, 0.02, 0.5, 2.0, 10.0, 20.0, 30.0, 40.0],
+ABSLENGTH_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
+ABSLENGTH_value2: [5e-7, 5e-7, 5e-7, 0.000187, 10.0, 10.0, 10.0, 10.0],
+
+
+RSLENGTH_option: "wavelength",
+//RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+//RSLENGTH_value2: [2.35, 37.5, 190.0, 600.0, 1466.0, 3040.0, 5631.0, 9607.0, 15378.0],
+RSLENGTH_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
+RSLENGTH_value2: [1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6],
+  
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
+REEMISSION_PROB_value2: [1.0, 1.0, 1.0, 1.0],
+
+//PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "ABSLENGTH", "RSLENGTH", "SCINTILLATION", "SCINTILLATION_WLS", "REEMISSION_PROB"]
+PROPERTY_LIST: ["LIGHT_YIELD","RINDEX", "SCINTILLATION", "SCINTILLATION_WLS", "ABSLENGTH", "RSLENGTH","REEMISSION_PROB"]
+
+}
+
+// Liquid Argon (LAr)
+{
+name: "OPTICS",
+index: "LAr",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+
+RINDEX_option: "wavelength",
+// For simplicity, assume LAr is nearly non-dispersive over 100-900 nm
+RINDEX_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RINDEX_value2: [1.23, 1.23, 1.23, 1.23, 1.23, 1.23, 1.23, 1.23, 1.23],
+
+ABSLENGTH_option: "wavelength",
+// High purity LAr is very transparent in its emission region (scintillation at ~128 nm)
+ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+ABSLENGTH_value2: [1.0, 50.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0],
+
+RSLENGTH_option: "wavelength",
+// Scale the Rayleigh scattering length with λ^4. Using a coefficient so that near 128 nm the value is ~0.9 m:
+// Here approximate values at our 9 points:
+RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RSLENGTH_value2: [0.34, 5.37, 27.2, 86.0, 209.9, 435.4, 805.5, 1375.8, 2203.1],
+
+SCINTILLATION_option: "wavelength",
+// LAr scintillates strongly near 128 nm; in our 9-point set, assign the peak to 100 nm and negligible above
+SCINTILLATION_value1: [127.0, 128.0, 129.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+SCINTILLATION_value2: [0.0, 1.0, 0.0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+SCINTILLATION_WLS_voption: "wavelength",
+// LAr scintillates strongly near 128 nm; in our 9-point set, assign the peak to 100 nm and negligible above
+SCINTILLATION_WLS_value1: [127.0, 128.0, 129.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+SCINTILLATION_WLS_value2: [0.0, 1.0, 0.0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
+REEMISSION_PROB_value2: [0.0, 0.0, 0.0, 0.0],
+
+PROPERTY_LIST: ["RINDEX", "ABSLENGTH", "RSLENGTH", "SCINTILLATION", "SCINTILLATION_WLS", "REEMISSION_PROB"]
+}
+
+// Reflector ("Reflect")
+{
+name: "OPTICS",
+index: "Reflect",
+valid_begin : [0, 0],
+valid_end : [0, 0],
+
+RINDEX_option: "wavelength",
+// Use a typical constant refractive index for a reflector substrate (e.g., 1.50)
+RINDEX_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RINDEX_value2: [1.50, 1.50, 1.50, 1.50, 1.50, 1.50, 1.50, 1.50, 1.50],
+
+ABSLENGTH_option: "wavelength",
+// Set an extremely long absorption length to mimic a nearly lossless reflector
+ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+ABSLENGTH_value2: [1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6],
+
+RSLENGTH_option: "wavelength",
+// Minimal scattering: assign very high scattering lengths
+RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+RSLENGTH_value2: [1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6],
+
+SCINTILLATION_option: "wavelength",
+// No intrinsic emission for a reflector
+SCINTILLATION_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+SCINTILLATION_value2: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+SCINTILLATION_WLS_option: "wavelength",
+// No intrinsic emission for a reflector
+SCINTILLATION_WLS_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
+SCINTILLATION_WLS_value2: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+REEMISSION_PROB_option: "wavelength",
+REEMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
+REEMISSION_PROB_value2: [0.0, 0.0, 0.0, 0.0],
+
+PROPERTY_LIST: ["RINDEX", "ABSLENGTH", "RSLENGTH", "SCINTILLATION", "SCINTILLATION_WLS", "REEMISSION_PROB"]
+}
+
