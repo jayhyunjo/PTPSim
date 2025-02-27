@@ -13,20 +13,20 @@
   ABSLENGTH_option: "wavelength",
   // High purity LAr is very transparent in its emission region (scintillation at ~128 nm)
   ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  ABSLENGTH_value2: [1.0, 50.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0],
+  ABSLENGTH_value2: [1000.0, 50000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0, 100000.0],
 
   RSLENGTH_option: "wavelength",
   // Scale the Rayleigh scattering length with λ^4. Using a coefficient so that near 128 nm the value is ~0.9 m:
   // Here approximate values at our 9 points:
   RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  RSLENGTH_value2: [0.34, 5.37, 27.2, 86.0, 209.9, 435.4, 805.5, 1375.8, 2203.1],
+  RSLENGTH_value2: [340, 5370, 27200, 86000, 209900, 435400, 805500, 1375800, 2203100],
 
-  SCINTILLATION_option: "wavelength",
+  SCINTILLATION_option: "dy_dwavelength",
   // LAr scintillates strongly near 128 nm; in our 9-point set, assign the peak to 100 nm and negligible above
   SCINTILLATION_value1: [127.0, 128.0, 129.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_value2: [0.0, 1.0, 0.0, 0, 0, 0, 0, 0, 0, 0, 0],
 
-  SCINTILLATION_WLS_voption: "wavelength",
+  SCINTILLATION_WLS_voption: "dy_dwavelength",
   // LAr scintillates strongly near 128 nm; in our 9-point set, assign the peak to 100 nm and negligible above
   SCINTILLATION_WLS_value1: [127.0, 128.0, 129.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_WLS_value2: [0.0, 1.0, 0.0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -49,11 +49,11 @@
   RINDEX_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
   RINDEX_value2: [1.65, 1.65, 1.65, 1.65, 1.65, 1.65, 1.65, 1.65],
   
-  SCINTILLATION_option: "dy_wavelength",
+  SCINTILLATION_option: "dy_dwavelength",
   // Use original ratpac default primary scintillation
   SCINTILLATION_value1: [200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_value2: [0.0, 0.80, 0.60, 0.10, 0.0, 0.0, 0.0, 0.0],
-  SCINTILLATION_WLS_option: "dy_wavelength",
+  SCINTILLATION_WLS_option: "dy_dwavelength",
   
   // pTP acts as a wavelength shifter; its relative emission (G4 “WLSCOMPONENT”)
   // is provided originally (in descending order) as:
@@ -67,12 +67,12 @@
   // originally: [10, 10, 10, 10, 0.000187, 5e-7, 5e-7, 5e-7]
   // Reordered to ascending wavelength:
   ABSLENGTH_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
-  ABSLENGTH_value2: [5e-7, 5e-7, 5e-7, 0.000187, 10.0, 10.0, 10.0, 10.0],
+  ABSLENGTH_value2: [5e-4, 5e-4, 5e-4, 000.187, 10000.0, 10000.0, 10000.0, 10000.0],
   
   RSLENGTH_option: "wavelength",
   // Use original ratpac default Rayleigh scattering lengths:
   RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  RSLENGTH_value2: [2.35, 37.5, 190.0, 600.0, 1466.0, 3040.0, 5631.0, 9607.0, 15378.0],
+  RSLENGTH_value2: [2350, 37500, 190000, 600000, 1466000, 3040000, 5631000, 9607000, 15378000],
   
   REEMISSION_PROB_option: "wavelength",
   REMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
@@ -91,20 +91,20 @@
   // Acrylic rindex from G4:
   RINDEX_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
   RINDEX_value2: [1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5],
-  SCINTILLATION_option: "dy_wavelength",
+  SCINTILLATION_option: "dy_dwavelength",
   // No scintillation in acrylic – use ratpac defaults:
   SCINTILLATION_value1: [200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_value2: [0.0, 0.80, 0.60, 0.10, 0.0, 0.0, 0.0, 0.0],
-  SCINTILLATION_WLS_option: "dy_wavelength",
+  SCINTILLATION_WLS_option: "dy_dwavelength",
   SCINTILLATION_WLS_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
   SCINTILLATION_WLS_value2: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
   ABSLENGTH_option: "wavelength",
   // Use default absorption lengths from ratpac:
   ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  ABSLENGTH_value2: [0.00002, 0.0005, 0.02, 0.5, 2.0, 10.0, 20.0, 30.0, 40.0],
+  ABSLENGTH_value2: [0.02, 0.5, 20, 500, 2000.0, 10000.0, 20000.0, 30000.0, 40000.0],
   RSLENGTH_option: "wavelength",
   RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  RSLENGTH_value2: [2.35, 37.5, 190.0, 600.0, 1466.0, 3040.0, 5631.0, 9607.0, 15378.0],
+  RSLENGTH_value2: [2350.0, 37000.5, 190000.0, 600000.0, 1466000.0, 3040000.0, 5631000.0, 9607000.0, 15378000.0],
   REEMISSION_PROB_option: "wavelength",
   REEMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
   REEMISSION_PROB_value2: [1.0, 1.0, 1.0, 1.0],
@@ -129,11 +129,11 @@
   // bluewlsacrylic rindex from G4:
   RINDEX_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
   RINDEX_value2: [1.58, 1.58, 1.58, 1.58, 1.58, 1.58, 1.58, 1.58],
-  SCINTILLATION_option: "dy_wavelength",
+  SCINTILLATION_option: "dy_dwavelength",
   // Use original default primary scintillation:
   SCINTILLATION_value1: [200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_value2: [0.0, 0.80, 0.60, 0.10, 0.0, 0.0, 0.0, 0.0],
-  SCINTILLATION_WLS_option: "dy_wavelength",
+  SCINTILLATION_WLS_option: "dy_dwavelength",
   // bluewlsacrylic emission (“WLSCOMPONENT”) originally given (in descending order):
   // [0.0005, 0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
   // Reordered in ascending wavelength:
@@ -145,14 +145,14 @@
   // Converted (200cm = 2.0 m, 0.8mm = 0.0008 m, 3mm = 0.003 m, 0.0001mm = 1e-7 m)
   // Reordered to ascending wavelength:
   ABSLENGTH_value1: [106.0, 128.0, 160.0, 305.0, 340.0, 400.0, 425.0, 530.0],
-  ABSLENGTH_value2: [1e-7, 1e-7, 1e-7, 0.003, 0.0008, 0.0008, 2.0, 2.0],
+  ABSLENGTH_value2: [1e-4, 1e-4, 1e-4, 3, 0.8, 0.8, 2000.0, 2000.0],
   RSLENGTH_option: "wavelength",
   // Use default scattering lengths:
   RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  RSLENGTH_value2: [2.35, 37.5, 190.0, 600.0, 1466.0, 3040.0, 5631.0, 9607.0, 15378.0],
+  RSLENGTH_value2: [2350, 37500, 190000, 600000, 1466000, 3040000, 5631000, 9607000, 15378000],
   REEMISSION_PROB_option: "wavelength",
-  REMISSION_PROB_value1: [200.0, 345.0, 370.0, 800.0],
-  REMISSION_PROB_value2: [1.0, 1.0, 1.0, 1.0],
+  REMISSION_PROB_value1: [100.0, 200.0, 345.0, 370.0, 800.0],
+  REMISSION_PROB_value2: [0.0, 1.0, 1.0, 1.0, 1.0],
 
   PROPERTY_LIST: ["LIGHT_YIELD", "RINDEX", "ABSLENGTH", "RSLENGTH", "SCINTILLATION", "SCINTILLATION_WLS", "REEMISSION_PROB"]
 
@@ -172,19 +172,19 @@
   ABSLENGTH_option: "wavelength",
   // Set an extremely long absorption length to mimic a nearly lossless reflector
   ABSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  ABSLENGTH_value2: [1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6],
+  ABSLENGTH_value2: [1e3, 1e3, 1e3, 1e3, 1e3, 1e3, 1e3, 1e3, 1e3],
 
   RSLENGTH_option: "wavelength",
   // Minimal scattering: assign very high scattering lengths
   RSLENGTH_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
-  RSLENGTH_value2: [1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6, 1e6],
+  RSLENGTH_value2: [1e3, 1e3, 1e3, 1e3, 1e3, 1e3, 1e3, 1e3, 1e3],
 
-  SCINTILLATION_option: "wavelength",
+  SCINTILLATION_option: "dy_dwavelength",
   // No intrinsic emission for a reflector
   SCINTILLATION_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_value2: [0, 0, 0, 0, 0, 0, 0, 0, 0],
 
-  SCINTILLATION_WLS_option: "wavelength",
+  SCINTILLATION_WLS_option: "dy_dwavelength",
   // No intrinsic emission for a reflector
   SCINTILLATION_WLS_value1: [100.0, 200.0, 300.0, 400.0, 500.0, 600.0, 700.0, 800.0, 900.0],
   SCINTILLATION_WLS_value2: [0, 0, 0, 0, 0, 0, 0, 0, 0],
