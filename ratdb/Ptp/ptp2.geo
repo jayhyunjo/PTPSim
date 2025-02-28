@@ -20,7 +20,7 @@ type: "box",
 size: [300.0,300.0,300.0],
 position: [0.0, 0.0, 0.0],
 material: "LAr",
-color:[0.42, 0.47, 0.57, 0.95] // blue
+color:[0.42, 0.47, 0.57, 0.3] // blue
 drawstyle: "solid"
 }
 
@@ -37,7 +37,7 @@ drawstyle: "solid"
   size: [0.1, 100.0, 100.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
   position: [-12.6, 0.0, 0.0],
   material: "PTP",
-  color:[1.0, 0.0, 0.0, 0.9] // red
+  color:[1.0, 0.0, 0.0, 0.3] // red
   drawstyle: "solid"
 }
 
@@ -54,7 +54,7 @@ drawstyle: "solid"
   size: [3.0, 100.0, 100.0],
   position: [-9.5, 0.0, 0.0],
   material: "Acrylic",
-  color:[1.0, 0.5, 0.5, 0.9] // ?
+  color:[1.0, 0.5, 0.5, 0.3] // ?
   drawstyle: "solid"
 }
 
@@ -72,7 +72,7 @@ drawstyle: "solid"
   position: [-1.5, 0.0, 0.0],
   //material: "eljen_WLSP", // Pre-defined in ratpac-two
   material: "EJ286", // Manually defined
-  color:[0.0, 1.0, 0.0, 0.9] // green
+  color:[0.0, 1.0, 0.0, 0.3] // green
   drawstyle: "solid"
 }
 
@@ -89,7 +89,7 @@ drawstyle: "solid"
   size: [0.5, 100.0, 100.0],
   position: [2.0, 0.0, 0.0],
   material: "Reflect",
-  color:[1.0, 1.0, 1.0, 0.9] // white
+  color:[1.0, 1.0, 1.0, 0.5] // white
   drawstyle: "solid"
 }
 
@@ -105,6 +105,6 @@ drawstyle: "solid"
   sensitive_detector: "/mydet/pmt/inner",
   //efficiency_correction: 1.000,
   pos_table: "PMTINFO_sipm", //generated on the fly
-  color: [0.8, 0.8, 0.8, 1.0] // light gray
+  color: [0.8, 0.8, 0.8, 0.5] // light gray
   orientation: "manual",
 }

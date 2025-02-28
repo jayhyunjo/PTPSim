@@ -34,15 +34,20 @@
 /rat/proc count
 /rat/procset update 10
 
-/rat/proclast outroot
+/rat/proclast outntuple
 
 ##### GENERATORS #################
+
+#/generator/add combo gun:point:poisson
+#/generator/vtx/set e- 1.0 0.0 0.0 5.0
+#/generator/pos/set -20.0 0.0 0.0
+
 /generator/add combo pbomb:point:poisson
-/generator/vtx/set 1 128 # 1000 photons, 128nm
-/generator/pos/set -13.0 0.0 0.0
+/generator/vtx/set 10000 128 # 1000 photons, 128nm
+/generator/pos/set -20.0 0.0 0.0
 
 
 # Begin the run (1 event)
-/run/beamOn 1000
+/run/beamOn 10
 
 
