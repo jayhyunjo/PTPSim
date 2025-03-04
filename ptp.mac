@@ -42,12 +42,15 @@
 #/generator/vtx/set e- 1.0 0.0 0.0 5.0
 #/generator/pos/set -20.0 0.0 0.0
 
-/generator/add combo pbomb:point:poisson
-/generator/vtx/set 10000 128 # 1000 photons, 128nm
-/generator/pos/set -20.0 0.0 0.0
+#/generator/add combo pbomb:point:poisson
+#/generator/vtx/set 10000 128 # 1000 photons, 128nm
+#/generator/pos/set -12.65 0.0 0.0
 
+/generator/add combo pbomb:fill:poisson
+/generator/vtx/set 100 128 # 1000 photon, 128nm
+/generator/pos/set gVol
 
 # Begin the run (1 event)
-/run/beamOn 10
+/run/beamOn 10000
 
 

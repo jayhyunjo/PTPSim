@@ -5,7 +5,7 @@ valid_begin: [0.0, 0.0],
 valid_end: [0.0, 0.0],
 mother: "", // world volume has no mother
 type: "box",
-size: [400.0, 400.0, 400.0], // mm, half-length
+size: [600.0, 600.0, 600.0], // mm, half-length
 material: "air",
 invisible: 1,
 }
@@ -17,11 +17,26 @@ valid_begin: [0.0, 0.0],
 valid_end: [0.0, 0.0],
 mother: "world",
 type: "box",
-size: [300.0,300.0,300.0],
+size: [500.0,500.0,500.0],
 position: [0.0, 0.0, 0.0],
 material: "LAr",
 color:[0.42, 0.47, 0.57, 0.3] // blue
 drawstyle: "solid"
+}
+
+// volume for photon bomb generation
+{
+  name: "GEO",
+  index: "gVol",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [0.001, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+  position: [-12.649, 0.0, 0.0],
+  material: "air",
+  color:[0.3, 0.3, 0.1, 0.1] 
+  drawstyle: "solid"
 }
 
 // Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
@@ -34,7 +49,7 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [0.1, 100.0, 100.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+  size: [0.1, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
   position: [-12.6, 0.0, 0.0],
   material: "PTP",
   color:[1.0, 0.0, 0.0, 0.3] // red
@@ -51,7 +66,7 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [3.0, 100.0, 100.0],
+  size: [3.0, 300.0, 300.0],
   position: [-9.5, 0.0, 0.0],
   material: "Acrylic",
   color:[1.0, 0.5, 0.5, 0.3] // ?
@@ -68,11 +83,11 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [3.0, 100.0, 100.0],
+  size: [3.0, 300.0, 300.0],
   position: [-1.5, 0.0, 0.0],
-  //material: "eljen_WLSP", // Pre-defined in ratpac-two
-  material: "EJ286", // Manually defined
-  color:[0.0, 1.0, 0.0, 0.3] // green
+  material: "eljen_WLSP", // Pre-defined in ratpac-two
+  //material: "EJ286", // Manually defined
+  color:[0.0, 1.0, 0.0, 0.1] // green
   drawstyle: "solid"
 }
 
@@ -86,10 +101,10 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [0.5, 100.0, 100.0],
+  size: [0.5, 300.0, 300.0],
   position: [2.0, 0.0, 0.0],
-  material: "Reflect",
-  color:[1.0, 1.0, 1.0, 0.5] // white
+  material: "glass",
+  color:[1.0, 1.0, 1.0, 0.2] // white
   drawstyle: "solid"
 }
 
@@ -105,6 +120,6 @@ drawstyle: "solid"
   sensitive_detector: "/mydet/pmt/inner",
   //efficiency_correction: 1.000,
   pos_table: "PMTINFO_sipm", //generated on the fly
-  color: [0.8, 0.8, 0.8, 0.5] // light gray
+  color: [0.8, 0.8, 0.8, 0.3] // light gray
   orientation: "manual",
 }
