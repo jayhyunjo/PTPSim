@@ -32,27 +32,44 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [0.001, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
-  position: [-12.649, 0.0, 0.0],
+  size: [0.001, 300.0, 300.0], 
+  position: [-12.701, 0.0, 0.0],
   material: "air",
-  color:[0.3, 0.3, 0.1, 0.1] 
+  color:[0.3, 0.3, 0.1, 0.0] 
   drawstyle: "solid"
 }
 
 // Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
 // Positioned on the leftmost side of the layered structure.
 // It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
+//{
+//  name: "GEO",
+//  index: "PTP",
+//  valid_begin: [0.0, 0.0],
+//  valid_end: [0.0, 0.0],
+//  mother: "inner_surface",
+//  type: "box",
+//  size: [0.1, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+//  position: [-12.6, 0.0, 0.0],
+//  material: "PTP",
+//  color:[1.0, 0.0, 0.0, 0.3] // red
+//  drawstyle: "solid"
+//}
 {
   name: "GEO",
   index: "PTP",
   valid_begin: [0.0, 0.0],
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
-  type: "box",
-  size: [0.1, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+  type: "PTPCoating",
+  box_length: 0.1,
+  box_width: 300.0,
+  box_thickness: 300.0,
   position: [-12.6, 0.0, 0.0],
-  material: "PTP",
-  color:[1.0, 0.0, 0.0, 0.3] // red
+  coating_material: "PTP",
+  material: "PTP"
+  coating_color: [0.2, 0.5, 0.0, 0.3],
+  sigma_alpha: 1,
   drawstyle: "solid"
 }
 

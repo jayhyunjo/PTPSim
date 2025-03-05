@@ -10,6 +10,7 @@ Ptp::Ptp(RAT::AnyParse* parser, int argc, char** argv) : Rat(parser, argc, argv)
   }
   // Initialize a geometry factory
   new GeoPtpFactory();
+  new GeoPTPCoatingFactory();
   //new DichroiconArrayFactory();
 #if TENSORFLOW_Enabled && NLOPT_Enabled
   RAT::ProcBlockManager::AppendProcessor<HitmanProc>();

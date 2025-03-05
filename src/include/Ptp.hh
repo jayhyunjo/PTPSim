@@ -10,6 +10,7 @@
 #include <RAT/Factory.hh>
 #include <GeoPtpFactory.hh>
 //#include <DichroiconArrayFactory.hh>
+#include <GeoPTPCoatingFactory.hh>
 #include <HitmanProc.hh>
 #include <NtupleProc.hh>
 #include <LaserballGenerator.hh>
