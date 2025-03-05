@@ -5,7 +5,7 @@ valid_begin: [0.0, 0.0],
 valid_end: [0.0, 0.0],
 mother: "", // world volume has no mother
 type: "box",
-size: [600.0, 600.0, 600.0], // mm, half-length
+size: [700.0, 700.0, 700.0], // mm, half-length
 material: "air",
 invisible: 1,
 }
@@ -17,7 +17,7 @@ valid_begin: [0.0, 0.0],
 valid_end: [0.0, 0.0],
 mother: "world",
 type: "box",
-size: [500.0,500.0,500.0],
+size: [600.0,600.0,600.0],
 position: [0.0, 0.0, 0.0],
 material: "LAr",
 color:[0.42, 0.47, 0.57, 0.3] // blue
@@ -32,7 +32,7 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [0.001, 300.0, 300.0], 
+  size: [0.001, 225.0, 247.5], 
   position: [-12.701, 0.0, 0.0],
   material: "air",
   color:[0.3, 0.3, 0.1, 0.0] 
@@ -63,8 +63,8 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "PTPCoating",
   box_length: 0.1,
-  box_width: 300.0,
-  box_thickness: 300.0,
+  box_width: 225.0,
+  box_thickness: 247.5,
   position: [-12.6, 0.0, 0.0],
   coating_material: "PTP",
   material: "PTP"
@@ -83,7 +83,7 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [3.0, 300.0, 300.0],
+  size: [3.0, 225.0, 247.5],
   position: [-9.5, 0.0, 0.0],
   material: "Acrylic",
   color:[1.0, 0.5, 0.5, 0.3] // ?
@@ -100,7 +100,7 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [3.0, 300.0, 300.0],
+  size: [3.0, 225.0, 247.5],
   position: [-1.5, 0.0, 0.0],
   material: "eljen_WLSP", // Pre-defined in ratpac-two
   //material: "EJ286", // Manually defined
@@ -118,7 +118,7 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "inner_surface",
   type: "box",
-  size: [0.5, 300.0, 300.0],
+  size: [0.5, 225.0, 247.5],
   position: [2.0, 0.0, 0.0],
   material: "glass",
   color:[1.0, 1.0, 1.0, 0.2] // white
