@@ -7,3 +7,4 @@ theia.sh
 install/*
 build/*
 Config.hh
+ptp.sh
