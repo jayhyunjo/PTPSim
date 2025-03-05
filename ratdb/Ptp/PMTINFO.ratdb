@@ -1,20 +1,3 @@
-//{
-  //"name": "PMTINFO_sipm",
-  //"valid_begin": [0, 0],
-  //"valid_end": [0, 0],
-  // Fixed x coordinate at the outer face of the WLS pad (x = 5.5 mm)
-  //"x": [-1.5,],
-  // y positions: a one-dimensional array of centers for 10 devices, each 6 mm apart.
-  //"y": [0., ],
-  // Fixed z coordinate (placed at the lower side, e.g. near the bottom of LAr_main)
-  //"z": [-102.0],
-  // All SiPMs are oriented to face in the +z direction.
-  //"dir_x": [0.0, ],
-  //"dir_y": [0.0, ],
-  //"dir_z": [1.0, ],
-  //"type":  [1.0,]
-//}
-
 {
   "name": "PMTINFO_sipm",
   "valid_begin": [0, 0],
@@ -55,21 +38,17 @@
     1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0
   ]
 }
+
 {
-name: "PMT",
-index: "sipm",
-valid_begin: [0,0],
-construction: "lappd",
-
-glass_material: "glass",
-pmt_vacuum_material: "pmt_vacuum",
-photocathode_surface: "photocathode_sipm",
-
-glass_thickness: 1.0, // mm
-
-width: 6.0, //mm
-thick: 2.0, //mm
-
-noise_rate: 10000.0, // Hz
+  "name": "PMT",
+  "index": "sipm",
+  "valid_begin": [0, 0],
+  "construction": "lappd",
+  "glass_material": "glass",
+  "pmt_vacuum_material": "pmt_vacuum",
+  "photocathode_surface": "photocathode_sipm",
+  "glass_thickness": 1.0,
+  "width": 8.26,
+  "thick": 2.0,
+  "noise_rate": 10000.0
 }
-
