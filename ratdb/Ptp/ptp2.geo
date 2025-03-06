@@ -134,7 +134,7 @@ drawstyle: "solid"
   size: [3.0, 225.0, 0.5],
   position: [-1.5, 0.0, 248.0],
   material: "glass",
-  color: [1.0, 1.0, 1.0, 1],
+  color: [1.0, 1.0, 1.0, 0.2],
   drawstyle: "solid"
 }
 {
@@ -147,7 +147,7 @@ drawstyle: "solid"
   size: [3.0, 225.0 , 0.5],
   position: [-1.5, 0.0, -252],
   material: "glass",
-  color: [1.0, 1.0, 1.0, 1] // light gray
+  color: [1.0, 1.0, 1.0, 0.2] // light gray
   orientation: "manual",
 }
 
@@ -161,7 +161,7 @@ drawstyle: "solid"
   size: [3.0, 0.5, 247.0 ],
   position: [-1.5, 225.5, 0.0],
   material: "glass",
-  color: [1.0, 1.0, 1.0, 1],
+  color: [1.0, 1.0, 1.0, 0.2],
   drawstyle: "solid"
 }
 {
@@ -174,7 +174,7 @@ drawstyle: "solid"
   "size": [3.0, 0.5, 247.0],
   "position": [-1.5, -225.5, 0.0],
   "material": "glass",
-  "color": [1.0, 1.0, 1.0, 1],
+  "color": [1.0, 1.0, 1.0, 0.2],
   "drawstyle": "solid"
 }
 
