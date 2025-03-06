@@ -124,6 +124,59 @@ drawstyle: "solid"
   color:[1.0, 1.0, 1.0, 0.2] // white
   drawstyle: "solid"
 }
+{
+  name: "GEO",
+  index: "reflector_zpos",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [3.0, 225.0, 0.5],
+  position: [-1.5, 0.0, 248.0],
+  material: "glass",
+  color: [1.0, 1.0, 1.0, 1],
+  drawstyle: "solid"
+}
+{
+  name: "GEO",
+  index: "reflector_zneg",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [3.0, 225.0 , 0.5],
+  position: [-1.5, 0.0, -252],
+  material: "glass",
+  color: [1.0, 1.0, 1.0, 1] // light gray
+  orientation: "manual",
+}
+
+{
+  name: "GEO",
+  index: "reflector_ypos",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [3.0, 0.5, 247.0 ],
+  position: [-1.5, 225.5, 0.0],
+  material: "glass",
+  color: [1.0, 1.0, 1.0, 1],
+  drawstyle: "solid"
+}
+{
+  "name": "GEO",
+  "index": "reflector_yneg",
+  "valid_begin": [0.0, 0.0],
+  "valid_end": [0.0, 0.0],
+  "mother": "inner_surface",
+  "type": "box",
+  "size": [3.0, 0.5, 247.0],
+  "position": [-1.5, -225.5, 0.0],
+  "material": "glass",
+  "color": [1.0, 1.0, 1.0, 1],
+  "drawstyle": "solid"
+}
 
 {
   name: "GEO",
