@@ -26,7 +26,7 @@
 /rat/db/set DETECTOR experiment "Ptp"
 /rat/db/set DETECTOR geo_file "Ptp/ptp2.geo"
 
-/rat/db/set GEO[PTP] sigma_alpha 0.8
+/rat/db/set GEO[PTP] sigma_alpha 0.0
 /rat/db/set GEO[PTP] box_length 0.0001 # in mm
 /rat/db/set GEO[PTP] position [-12.5001,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] coating_material "PTP"

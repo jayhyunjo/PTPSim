@@ -77,7 +77,7 @@ G4VPhysicalVolume* GeoPTPCoatingFactory::Construct(RAT::DBLinkPtr table) {
   ptpOpticalSurface->SetType(dielectric_dielectric);
   ptpOpticalSurface->SetModel(unified);
   // Choose a finish (here we use 'ground'; adjust as needed)
-  ptpOpticalSurface->SetFinish(ground);
+  ptpOpticalSurface->SetFinish(polished);
   ptpOpticalSurface->SetSigmaAlpha(sigmaAlpha);
 
   // Attach the optical surface to the entire logical volume (skin surface)

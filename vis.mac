@@ -5,38 +5,30 @@
 /rat/db/set DETECTOR experiment "Ptp"
 /rat/db/set DETECTOR geo_file "Ptp/ptp2.geo"
 
-/rat/db/set GEO[PTP] sigma_alpha 0.0 
-/rat/db/set GEO[PTP] box_length 0.1 # in mm
+/rat/db/set GEO[inner_surface] material "LAr"
+/rat/db/set GEO[substrate] material "Acrylic"
+/rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
+
+#/rat/db/set GEO[PTP] sigma_alpha 0.0 
+#/rat/db/set GEO[PTP] box_length 1 # in mm
 /rat/db/set GEO[PTP] position [-12.6,0.0,0.0] # in mm
-/rat/db/set GEO[PTP] coating_material "PTP"
-/rat/db/set GEO[gVol] position [-12.701,0.0,0.0]
-/rat/db/set GEO[sipm_side] efficiency_correction 1
+/rat/db/set GEO[PTP] size [0.2,225.0,247.5]
 
-/rat/db/set GEO[reflector_zpos] material "Reflect"
-/rat/db/set GEO[reflector_zneg] material "Reflect"
-/rat/db/set GEO[reflector_ypos] material "Reflect"
-/rat/db/set GEO[reflector_yneg] material "Reflect"
-/rat/db/set GEO[reflector] material "Reflect"
+#/rat/db/set GEO[PTP] position [7.5,0.0,0.0] # in mm
+#/rat/db/set GEO[PTP] coating_material "PTP"
 
+/rat/db/set GEO[PTP] material "PTP"
+#/rat/db/set GEO[gVol] position [-322.701,0.0,0.0]
+#/rat/db/set GEO[sipm_side] efficiency_correction 1
 
-# Make the world volume visible and assign it a light gray color
-#/rat/db/set GEO[world] invisible 0
-#/rat/db/set GEO[world] color [0.8, 0.8, 0.8, 1.0]    # light gray
+#/rat/db/set GEO[reflector_zpos] material "LAr"
+#/rat/db/set GEO[reflector_zneg] material "LAr"
+#/rat/db/set GEO[reflector_ypos] material "LAr"
+#/rat/db/set GEO[reflector_yneg] material "LAr"
+#/rat/db/set GEO[reflector] material "LAr"
 
-# Set the inner_surface color to a bluish tone with high opacity
-#/rat/db/set GEO[inner_surface] color [0.42, 0.47, 0.57, 0.95]    # bluish-gray
-
-# For the PTP daughter layer (the target) set a bright red color
-#/rat/db/set GEO[PTP] color [1.0, 0.0, 0.0, 0.9]      # red
-
-# For the WLS layer, choose a green color
-#/rat/db/set GEO[WLS] color [0.0, 1.0, 0.0, 0.9]      # green
-
-# For the Reflect layer, assign white (or near-white)
-#/rat/db/set GEO[reflector] color [1.0, 1.0, 1.0, 0.9]  # white
-
-# For the sipm_side (PMT array), assign a brownish color
-#/rat/db/set GEO[sipm_side] color [0.4, 0.2, 0.2, 0.9]  # brown
+/rat/db/set GEO[WLS] material "eljen_WLSP"
+/rat/db/set GEO[WLS] color [0.0,1.0,0.0,0.1]
 
 /run/initialize
 
@@ -67,7 +59,8 @@
 /vis/viewer/set/upVector 0.0 0.0 1.0
 /vis/viewer/set/viewpointThetaPhi -90 135
 /vis/scene/add/scale
-/vis/scene/add/axes
+/vis/viewer/set/viewpointVector 0 -1 0
+#/vis/scene/add/axes
 
 /rat/proc count
 /rat/procset update 1
@@ -76,15 +69,22 @@
 ##### GENERATORS #################
 #/generator/add combo gun:point:poisson
 #/generator/vtx/set e- 1.0 0.0 0.0 1.0
-#/generator/pos/set -20.0 0.0 0.0
+#/generator/pos/set -200.0 0.0 0.0
 
 ##### GENERATORS #################
 /generator/add combo pbomb:point:poisson
 #/generator/add combo pbomb:fill:poisson
-/generator/vtx/set 10000 128 # 1000 photon, 128nm
+#/generator/add combo gun:point:poisson
+#/generator/vtx/set opticalphoton 1.0 0.0 0.0 360nm
+#/generator/pos/set -5.5 0.0 0.0
+/generator/vtx/set 100 128 # 1000 photon, 128nm
 /generator/pos/set -20.0 0.0 0.0
-#/generator/pos/set -12.701 0.0 0.0
+#/generator/pos/set -122.701 0.0 0.0
+#/generator/pos/set -20.5 0.0 0.0
 
 ##### RUN ###########
 /run/beamOn 1
+
+
+
 

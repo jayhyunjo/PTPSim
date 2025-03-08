@@ -25,17 +25,51 @@ drawstyle: "solid"
 }
 
 // volume for photon bomb generation
+{
+  name: "GEO",
+  index: "gVol",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [0.001, 225.0, 247.5], 
+  position: [-12.701, 0.0, 0.0],
+  material: "air",
+  color:[0.3, 0.3, 0.1, 0.0] 
+  drawstyle: "solid"
+}
+
+// Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
+// Positioned on the leftmost side of the layered structure.
+// It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
 //{
 //  name: "GEO",
-//  index: "gVol",
+//  index: "PTP",
 //  valid_begin: [0.0, 0.0],
 //  valid_end: [0.0, 0.0],
 //  mother: "inner_surface",
 //  type: "box",
-//  size: [0.001, 225.0, 247.5], 
-//  position: [-12.701, 0.0, 0.0],
-//  material: "air",
-//  color:[0.3, 0.3, 0.1, 0.0] 
+//  size: [0.1, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+//  position: [-12.6, 0.0, 0.0],
+//  material: "PTP",
+//  color:[1.0, 0.0, 0.0, 0.3] // red
+//  drawstyle: "solid"
+//}
+//{
+//  name: "GEO",
+//  index: "PTP",
+//  valid_begin: [0.0, 0.0],
+//  valid_end: [0.0, 0.0],
+//  mother: "inner_surface",
+//  type: "PTPCoating",
+//  box_length: 0.1,
+//  box_width: 225.0,
+//  box_thickness: 247.5,
+//  position: [-12.6, 0.0, 0.0],
+//  coating_material: "PTP",
+//  material: "PTP"
+//  coating_color: [0.2, 0.5, 0.0, 0.3],
+//  sigma_alpha: 1,
 //  drawstyle: "solid"
 //}
 
@@ -51,46 +85,10 @@ drawstyle: "solid"
   type: "box",
   size: [3.0, 225.0, 247.5],
   position: [-9.5, 0.0, 0.0],
-  material: "acrylic_uvt_nakano",
+  material: "Acrylic",
   color:[1.0, 0.5, 0.5, 0.3] // ?
   drawstyle: "solid"
 }
-// Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
-// Positioned on the leftmost side of the layered structure.
-// It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
-
-{
-  name: "GEO",
-  index: "PTP",
-  valid_begin: [0.0, 0.0],
-  valid_end: [0.0, 0.0],
-  mother: "inner_surface",
-  type: "box",
-  size: [1.0, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
-  position: [-12.6, 0.0, 0.0],
-  material: "PTP",
-  color:[1.0, 0.0, 0.0, 0.3] // red
-  drawstyle: "solid"
-}
-
-//{
-//  name: "GEO",
-//  index: "PTP",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "substrate",
-//  type: "PTPCoating",
-//  box_length: 0.1,
-//  box_width: 225.0,
-//  box_thickness: 247.5,
-//  //position: [-12.6, 0.0, 0.0],
-//  position: [-0.0, 0.0, 0.0],
-//  coating_material: "PTP",
-//  material: "PTP"
-//  coating_color: [0.2, 0.5, 0.0, 0.3],
-//  sigma_alpha: 0,
-//  drawstyle: "solid"
-//}
 
 // Daughter layer: WLS (6 mm thick → half-thickness = 3 mm)
 // Positioned such that it does not touch the PTP/Substrate layer, leaving a 2 mm gap (LAr will fill in this gap).
@@ -106,24 +104,24 @@ drawstyle: "solid"
   position: [-1.5, 0.0, 0.0],
   material: "eljen_WLSP", // Pre-defined in ratpac-two
   //material: "EJ286", // Manually defined
-  color:[0.0, 1.0, 0.0, 0.0] // green
+  color:[0.0, 1.0, 0.0, 0.1] // green
   drawstyle: "solid"
 }
 
-//{
-//  name: "GEO",
-//  index: "LArGap",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "inner_surface",
-//  type: "box",
-//  size: [1.0, 225.0, 247.5],
-//  position: [-5.5, 0.0, 0.0],
-//  material: "LAr", // Pre-defined in ratpac-two
-//  //material: "EJ286", // Manually defined
-//  color:[1.0, 0.5, 0.0, 0.0] // green
-//  drawstyle: "solid"
-//}
+{
+  name: "GEO",
+  index: "LArGap",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "box",
+  size: [1.0, 225.0, 247.5],
+  position: [-5.5, 0.0, 0.0],
+  material: "LAr", // Pre-defined in ratpac-two
+  //material: "EJ286", // Manually defined
+  color:[1.0, 0.5, 0.0, 0.1] // green
+  drawstyle: "solid"
+}
 
 
 // Daughter layer: Reflector (1 mm thick → half-thickness = 0.5 mm)
@@ -168,7 +166,7 @@ drawstyle: "solid"
 //  color: [1.0, 1.0, 1.0, 0.2] 
 //  orientation: "manual",
 //}
-//
+
 //{
 //  name: "GEO",
 //  index: "reflector_ypos",
@@ -212,18 +210,19 @@ drawstyle: "solid"
   orientation: "manual",
 }
 
-//{
-//  name: "GEO",
-//  index: "sipm_side2",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "inner_surface",
-//  type: "pmtarray",
-//  pmt_model: "sipm2",
-//  pmt_detector_type: "idpmt",
-//  sensitive_detector: "/mydet/pmt/inner",
-//  pos_table: "PMTINFO_sipm2", 
-//  color: [0.8, 0.8, 0.8, 0.3] 
-//  orientation: "manual",
-//}
+{
+  name: "GEO",
+  index: "sipm_side2",
+  valid_begin: [0.0, 0.0],
+  valid_end: [0.0, 0.0],
+  mother: "inner_surface",
+  type: "pmtarray",
+  pmt_model: "sipm2",
+  pmt_detector_type: "idpmt",
+  sensitive_detector: "/mydet/pmt/inner",
+  //efficiency_correction: 1.000,
+  pos_table: "PMTINFO_sipm2", //generated on the fly
+  color: [0.8, 0.8, 0.8, 0.3] // light gray
+  orientation: "manual",
+}
 
