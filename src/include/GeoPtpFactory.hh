@@ -7,10 +7,11 @@
 namespace PTP {
 class GeoPtpFactory : public RAT::GeoSolidFactory {
  public:
+  G4OpticalSurfaceFinish GetOpticalSurfaceFinish(const std::string& finishStr);
+  G4OpticalSurfaceModel GetOpticalSurfaceModel(const std::string& modelStr);
 
   GeoPtpFactory() : GeoSolidFactory("ptp"){};
   virtual G4VSolid *ConstructSolid(RAT::DBLinkPtr table);
-  G4OpticalSurfaceFinish GetOpticalSurfaceFinish(const std::string& finishStr);
 };
 
 }  // namespace PTP

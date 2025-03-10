@@ -78,7 +78,7 @@ drawstyle: "solid"
   index: "PTP",
   valid_begin: [0.0, 0.0],
   valid_end: [0.0, 0.0],
-  mother: "inner_surface",
+  mother: "substrate",
   type: "PTPCoating",
   box_length: 0.1,
   box_width: 225.0,

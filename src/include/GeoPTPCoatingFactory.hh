@@ -7,6 +7,7 @@
 #include <RAT/GeoFactory.hh>
 #include <vector>
 #include <string>
+#include "G4OpticalSurface.hh"
 
 namespace PTP {
 

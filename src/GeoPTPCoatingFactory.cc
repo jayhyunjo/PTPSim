@@ -63,6 +63,22 @@ G4OpticalSurfaceFinish GetOpticalSurfaceFinish(const std::string& finishStr) {
     }
 }
 
+G4OpticalSurfaceModel GetOpticalSurfaceModel(const std::string& modelStr) {
+    static const std::map<std::string, G4OpticalSurfaceModel> modelMap = {
+        {"glisur", glisur},
+        {"unified", unified},
+        {"LUT", LUT},
+        {"dichroic", dichroic}
+    };
+
+    auto it = modelMap.find(modelStr);
+    if (it != modelMap.end()) {
+        return it->second;
+    } else {
+        throw std::runtime_error("Invalid G4OpticalSurfaceModel string: " + modelStr);
+    }
+}
+
 G4VPhysicalVolume* GeoPTPCoatingFactory::Construct(RAT::DBLinkPtr table) {
 	RAT::info << "Building PTP Coating" << newline;
 
@@ -117,13 +133,17 @@ G4VPhysicalVolume* GeoPTPCoatingFactory::Construct(RAT::DBLinkPtr table) {
   new G4PVPlacement(rotation, position, "PTPCoating", coatingLog, motherPhys, false, 0);
 
   const std::string ifinish = table->GetS("finish");
+  const std::string imodel = table->GetS("model");
+  const double ipolish = table->GetD("polish");
+
   // --- Define and attach an optical surface ---
   // Create an optical surface that will be applied as a skin surface to the coating
   G4OpticalSurface* ptpOpticalSurface = new G4OpticalSurface("PTPCoating_OpticalSurface");
   ptpOpticalSurface->SetType(dielectric_dielectric);
-  ptpOpticalSurface->SetModel(unified);
+  ptpOpticalSurface->SetModel(GetOpticalSurfaceModel(imodel));
   ptpOpticalSurface->SetFinish(GetOpticalSurfaceFinish(ifinish));
   ptpOpticalSurface->SetSigmaAlpha(sigmaAlpha);
+  ptpOpticalSurface->SetPolish(ipolish);
 
   // Attach the optical surface to the entire logical volume (skin surface)
   new G4LogicalSkinSurface("PTPCoating_SkinSurface", coatingLog, ptpOpticalSurface);
