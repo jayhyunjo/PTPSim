@@ -16,8 +16,52 @@
 #include <RAT/Materials.hh>
 #include <string>
 #include <vector>
+#include <map>
+#include <stdexcept>
 
 namespace PTP {
+
+G4OpticalSurfaceFinish GetOpticalSurfaceFinish(const std::string& finishStr) {
+    static const std::map<std::string, G4OpticalSurfaceFinish> finishMap = {
+        {"polished", polished},
+        {"polishedfrontpainted", polishedfrontpainted},
+        {"polishedbackpainted", polishedbackpainted},
+        {"ground", ground},
+        {"groundfrontpainted", groundfrontpainted},
+        {"groundbackpainted", groundbackpainted},
+        {"polishedlumirrorair", polishedlumirrorair},
+        {"polishedlumirrorglue", polishedlumirrorglue},
+        {"polishedair", polishedair},
+        {"polishedteflonair", polishedteflonair},
+        {"polishedtioair", polishedtioair},
+        {"polishedtyvekair", polishedtyvekair},
+        {"polishedvm2000air", polishedvm2000air},
+        {"polishedvm2000glue", polishedvm2000glue},
+        {"etchedlumirrorair", etchedlumirrorair},
+        {"etchedlumirrorglue", etchedlumirrorglue},
+        {"etchedair", etchedair},
+        {"etchedteflonair", etchedteflonair},
+        {"etchedtioair", etchedtioair},
+        {"etchedtyvekair", etchedtyvekair},
+        {"etchedvm2000air", etchedvm2000air},
+        {"etchedvm2000glue", etchedvm2000glue},
+        {"groundlumirrorair", groundlumirrorair},
+        {"groundlumirrorglue", groundlumirrorglue},
+        {"groundair", groundair},
+        {"groundteflonair", groundteflonair},
+        {"groundtioair", groundtioair},
+        {"groundtyvekair", groundtyvekair},
+        {"groundvm2000air", groundvm2000air},
+        {"groundvm2000glue", groundvm2000glue}
+    };
+
+    auto it = finishMap.find(finishStr);
+    if (it != finishMap.end()) {
+        return it->second;
+    } else {
+        throw std::runtime_error("Invalid G4OpticalSurfaceFinish string: " + finishStr);
+    }
+}
 
 G4VPhysicalVolume* GeoPTPCoatingFactory::Construct(RAT::DBLinkPtr table) {
 	RAT::info << "Building PTP Coating" << newline;
@@ -65,19 +109,20 @@ G4VPhysicalVolume* GeoPTPCoatingFactory::Construct(RAT::DBLinkPtr table) {
   // Determine placement: here we simply add the offset to the mother's translation
   G4RotationMatrix* rotation = motherPhys->GetObjectRotation();
   G4ThreeVector motherPos = motherPhys->GetObjectTranslation();
-  G4ThreeVector position = motherPos + offset;
+  //G4ThreeVector position = motherPos + offset;
+  G4ThreeVector position = offset;
 
   // Place the coating volume inside the mother volume
   //new G4PVPlacement(rotation, position, coatingLog, "PTPCoating", motherPhys, false, 0);
   new G4PVPlacement(rotation, position, "PTPCoating", coatingLog, motherPhys, false, 0);
 
+  const std::string ifinish = table->GetS("finish");
   // --- Define and attach an optical surface ---
   // Create an optical surface that will be applied as a skin surface to the coating
   G4OpticalSurface* ptpOpticalSurface = new G4OpticalSurface("PTPCoating_OpticalSurface");
   ptpOpticalSurface->SetType(dielectric_dielectric);
   ptpOpticalSurface->SetModel(unified);
-  // Choose a finish (here we use 'ground'; adjust as needed)
-  ptpOpticalSurface->SetFinish(polished);
+  ptpOpticalSurface->SetFinish(GetOpticalSurfaceFinish(ifinish));
   ptpOpticalSurface->SetSigmaAlpha(sigmaAlpha);
 
   // Attach the optical surface to the entire logical volume (skin surface)
