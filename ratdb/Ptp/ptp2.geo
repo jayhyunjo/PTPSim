@@ -34,10 +34,12 @@ drawstyle: "solid"
   type: "box",
   size: [3.0, 225.0, 247.5],
   position: [-9.5, 0.0, 0.0],
-  material: "acrylic_uvt_nakano",
-  color:[1.0, 0.5, 0.5, 0.3] 
+  //material: "acrylic_uvt_nakano",
+  material: "Acrylic",
+  color:[0.0, 1.0, 0.0, 0.1],
   drawstyle: "solid",
 }
+
 {
   name: "GEO",
   index: "genVol",
@@ -69,6 +71,9 @@ drawstyle: "solid"
 //  drawstyle: "solid"
 //}
 
+// Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
+// Positioned on the leftmost side of the layered structure.
+// It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
 {
   name: "GEO",
   index: "PTP",
@@ -80,12 +85,11 @@ drawstyle: "solid"
   box_width: 225.0,
   box_thickness: 247.5,
   position: [-12.6, 0.0, 0.0],
-  //position: [-0.0, 0.0, 0.0],
   coating_material: "PTP",
-  material: "PTP"
-  finish: "polished"
-  coating_color: [0.2, 0.5, 0.0, 0.3],
-  sigma_alpha: 0,
+  material: "PTP",
+  finish: "polished",
+  sigma_alpha: 0.0,
+  coating_color:[1.0, 0.0, 0.0, 0.3] // red
   drawstyle: "solid"
 }
 
@@ -103,7 +107,7 @@ drawstyle: "solid"
   position: [-1.5, 0.0, 0.0],
   material: "eljen_WLSP", // Pre-defined in ratpac-two
   //material: "EJ286", // Manually defined
-  color:[0.0, 1.0, 0.0, 0.0] // green
+  color:[0.0, 0.0, 1.0, 0.0]
   drawstyle: "solid"
 }
 

@@ -11,7 +11,7 @@
 /rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
 
 #/rat/db/set GEO[PTP] box_length 1 # in mm
-/rat/db/set GEO[PTP] position [-12.6,0.0,0.0] # in mm
+/rat/db/set GEO[PTP] position [-2.9,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] size [0.2,225.0,247.5]
 
 # this part is the optical surface
@@ -19,10 +19,10 @@
 # poslish works with "glisur" model
 # finish options are here: https://apc.u-paris.fr/~franco/g4doxy/html/G4OpticalSurface_8hh.html
 
-/rat/db/set GEO[PTP] finish "p"
+/rat/db/set GEO[PTP] finish "ground"
 /rat/db/set GEO[PTP] model "unified"
 /rat/db/set GEO[PTP] polish 1.0
-/rat/db/set GEO[PTP] sigma_alpha 70.0 deg
+#/rat/db/set GEO[PTP] sigma_alpha 0.0
 
 #/rat/db/set GEO[PTP] position [7.5,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] coating_material "PTP"
@@ -41,7 +41,7 @@
 #/rat/db/set GEO[reflector] material "LAr"
 
 /rat/db/set GEO[WLS] material "eljen_WLSP"
-/rat/db/set GEO[WLS] color [0.0,1.0,0.0,0.1]
+/rat/db/set GEO[WLS] color [0.0,0.0,1.0,0.1]
 
 /run/initialize
 
@@ -85,12 +85,13 @@
 #/generator/pos/set -200.0 0.0 0.0
 
 ##### GENERATORS #################
-#/generator/add combo pbomb:point:poisson
+/generator/add combo pbomb:point:poisson
 #/generator/add combo pbomb:fill:poisson
-/generator/add combo gun:point:poisson
-/generator/vtx/set opticalphoton 1.0 0.0 0.0 128nm
+#/generator/add combo gun:point:poisson
+
+#/generator/vtx/set opticalphoton 1.0 0.0 0.0 128nm
 #/generator/pos/set -5.5 0.0 0.0
-#/generator/vtx/set 100 128 # 1000 photon, 128nm
+/generator/vtx/set 1 128 # 1000 photon, 128nm
 #/generator/pos/set -20.0 0.0 0.0
 #/generator/pos/set -12.701 0.0 0.0
 /generator/pos/set -20.5 0.0 0.0
