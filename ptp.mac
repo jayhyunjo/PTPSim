@@ -31,19 +31,24 @@
 /rat/db/set GEO[substrate] material "Acrylic"
 /rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
 
-#/rat/db/set GEO[PTP] box_length 1 # in mm
-/rat/db/set GEO[PTP] position [-12.6,0.0,0.0] # in mm
-/rat/db/set GEO[PTP] size [0.2,225.0,247.5]
-
 # this part is the optical surface
 # sigma_alpha works with "unified" model
 # poslish works with "glisur" model
 # finish options are here: https://apc.u-paris.fr/~franco/g4doxy/html/G4OpticalSurface_8hh.html
 
-/rat/db/set GEO[PTP] finish "polished"
+/rat/db/set GEO[PTP] finish "ground"
 /rat/db/set GEO[PTP] model "unified"
 /rat/db/set GEO[PTP] polish 1.0
-/rat/db/set GEO[PTP] sigma_alpha 0.0
+#/rat/db/set GEO[PTP] sigma_alpha 0.0
+
+/rat/db/set GEO[PTP] position [-2.998,0.0,0.0] # in mm
+/rat/db/set GEO[PTP] size [0.002,225.0,247.5] # 2um thickness
+
+#/rat/db/set GEO[PTP] position [-2.9992,0.0,0.0] # in mm
+#/rat/db/set GEO[PTP] size [0.0008,225.0,247.5] # 0.8um thickness
+
+#/rat/db/set GEO[PTP] position [-2.996,0.0,0.0] # in mm
+#/rat/db/set GEO[PTP] size [0.004,225.0,247.5] # 4um thickness
 
 #/rat/db/set GEO[PTP] position [7.5,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] coating_material "PTP"
@@ -93,6 +98,6 @@
 
 
 # Begin the run (1 event)
-/run/beamOn 100
+/run/beamOn 1000
 
 
