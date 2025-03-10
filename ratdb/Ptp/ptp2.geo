@@ -9,7 +9,6 @@ size: [700.0, 700.0, 700.0], // mm, half-length
 material: "air",
 invisible: 1,
 }
-
 {
 name: "GEO",
 index: "inner_surface",
@@ -23,22 +22,6 @@ material: "LAr",
 color:[0.42, 0.47, 0.57, 0.3] // blue
 drawstyle: "solid"
 }
-
-// volume for photon bomb generation
-//{
-//  name: "GEO",
-//  index: "gVol",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "inner_surface",
-//  type: "box",
-//  size: [0.001, 225.0, 247.5], 
-//  position: [-12.701, 0.0, 0.0],
-//  material: "air",
-//  color:[0.3, 0.3, 0.1, 0.0] 
-//  drawstyle: "solid"
-//}
-
 // Daughter layer: Substrate (Acrylic) (6 mm thick → half-thickness = 3 mm)
 // Positioned on the leftmost side of the layered structure.
 // It extends from x = -12.5 to -6.5 mm (center at -9.5 mm).
@@ -52,13 +35,26 @@ drawstyle: "solid"
   size: [3.0, 225.0, 247.5],
   position: [-9.5, 0.0, 0.0],
   material: "acrylic_uvt_nakano",
-  color:[1.0, 0.5, 0.5, 0.3] // ?
+  color:[1.0, 0.5, 0.5, 0.3] 
+  drawstyle: "solid",
+}
+{
+  name: "GEO",
+  index: "genVol",
+  valid_begin: [0,0],
+  valid_end: [0,0],
+  mother: "inner_surface",
+  type: "box",
+  size: [0.001, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
+  position: [-12.701, 0.0, 0.0],
+  material: "air",
+  color:[0.3, 0.3, 0.1, 0.1] 
   drawstyle: "solid"
 }
+
 // Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
 // Positioned on the leftmost side of the layered structure.
 // It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
-
 //{
 //  name: "GEO",
 //  index: "PTP",
@@ -196,6 +192,7 @@ drawstyle: "solid"
 //  "color": [1.0, 1.0, 1.0, 0.2],
 //  "drawstyle": "solid"
 //}
+
 
 {
   name: "GEO",

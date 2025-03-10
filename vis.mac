@@ -19,15 +19,19 @@
 # poslish works with "glisur" model
 # finish options are here: https://apc.u-paris.fr/~franco/g4doxy/html/G4OpticalSurface_8hh.html
 
-/rat/db/set GEO[PTP] finish "polished"
+/rat/db/set GEO[PTP] finish "p"
 /rat/db/set GEO[PTP] model "unified"
 /rat/db/set GEO[PTP] polish 1.0
-/rat/db/set GEO[PTP] sigma_alpha 0.4
+/rat/db/set GEO[PTP] sigma_alpha 70.0 deg
 
 #/rat/db/set GEO[PTP] position [7.5,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] coating_material "PTP"
 /rat/db/set GEO[PTP] material "PTP"
-#/rat/db/set GEO[gVol] position [-322.701,0.0,0.0]
+/rat/db/set GEO[genVol] mother "inner_surface"
+/rat/db/set GEO[genVol] type "box"
+/rat/db/set GEO[genVol] material "air"
+/rat/db/set GEO[genVol] size [0.001,225.0,247.5]
+/rat/db/set GEO[genVol] position [-12.701,0.0,0.0]
 #/rat/db/set GEO[sipm_side] efficiency_correction 1
 
 #/rat/db/set GEO[reflector_zpos] material "LAr"
@@ -87,12 +91,12 @@
 /generator/vtx/set opticalphoton 1.0 0.0 0.0 128nm
 #/generator/pos/set -5.5 0.0 0.0
 #/generator/vtx/set 100 128 # 1000 photon, 128nm
-/generator/pos/set -20.0 0.0 0.0
-#/generator/pos/set -122.701 0.0 0.0
-#/generator/pos/set -20.5 0.0 0.0
+#/generator/pos/set -20.0 0.0 0.0
+#/generator/pos/set -12.701 0.0 0.0
+/generator/pos/set -20.5 0.0 0.0
 
 ##### RUN ###########
-/run/beamOn 20
+/run/beamOn 10
 
 
 
