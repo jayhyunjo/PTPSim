@@ -81,10 +81,10 @@ drawstyle: "solid"
   valid_end: [0.0, 0.0],
   mother: "substrate",
   type: "PTPCoating",
-  box_length: 0.1,
+  box_length: 0.001,
   box_width: 225.0,
   box_thickness: 247.5,
-  position: [-12.6, 0.0, 0.0],
+  position: [-12.501, 0.0, 0.0],
   coating_material: "PTP",
   material: "PTP",
   finish: "polished",
@@ -130,33 +130,33 @@ drawstyle: "solid"
 // Daughter layer: Reflector (1 mm thick → half-thickness = 0.5 mm)
 // Positioned on the far right, leaving no gap between WLS and Reflector.
 // Its center is at x = 2.0 mm, so it extends from 1.5 to 2.5 mm.
-//{
-//  name: "GEO",
-//  index: "reflector",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "inner_surface",
-//  type: "box",
-//  size: [0.5, 225.0, 247.5],
-//  position: [2.0, 0.0, 0.0],
-//  material: "glass",
-//  color:[1.0, 1.0, 1.0, 0.2] 
-//  drawstyle: "solid"
-//}
-//{
-//  name: "GEO",
-//  index: "reflector_zpos",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "inner_surface",
-//  type: "box",
-//  size: [3.0, 225.0, 0.5],
-//  position: [-1.5, 0.0, 248.0],
-//  material: "glass",
-//  color: [1.0, 1.0, 1.0, 0.2],
-//  drawstyle: "solid"
-//}
-//{
+{
+ name: "GEO",
+ index: "reflector",
+ valid_begin: [0.0, 0.0],
+ valid_end: [0.0, 0.0],
+ mother: "inner_surface",
+ type: "box",
+ size: [0.5, 225.0, 247.5],
+ position: [2.0, 0.0, 0.0],
+ material: "glass",
+ color:[1.0, 1.0, 1.0, 0.2] 
+ drawstyle: "solid"
+}
+{
+ name: "GEO",
+ index: "reflector_zpos",
+ valid_begin: [0.0, 0.0],
+ valid_end: [0.0, 0.0],
+ mother: "inner_surface",
+ type: "box",
+ size: [3.0, 225.0, 0.5],
+ position: [-1.5, 0.0, 248.0],
+ material: "glass",
+ color: [1.0, 1.0, 1.0, 0.2],
+ drawstyle: "solid"
+}
+// {
 //  name: "GEO",
 //  index: "reflector_zneg",
 //  valid_begin: [0.0, 0.0],
@@ -168,34 +168,34 @@ drawstyle: "solid"
 //  material: "glass",
 //  color: [1.0, 1.0, 1.0, 0.2] 
 //  orientation: "manual",
-//}
-//
-//{
-//  name: "GEO",
-//  index: "reflector_ypos",
-//  valid_begin: [0.0, 0.0],
-//  valid_end: [0.0, 0.0],
-//  mother: "inner_surface",
-//  type: "box",
-//  size: [3.0, 0.5, 247.0 ],
-//  position: [-1.5, 225.5, 0.0],
-//  material: "glass",
-//  color: [1.0, 1.0, 1.0, 0.2],
-//  drawstyle: "solid"
-//}
-//{
-//  "name": "GEO",
-//  "index": "reflector_yneg",
-//  "valid_begin": [0.0, 0.0],
-//  "valid_end": [0.0, 0.0],
-//  "mother": "inner_surface",
-//  "type": "box",
-//  "size": [3.0, 0.5, 247.0],
-//  "position": [-1.5, -225.5, 0.0],
-//  "material": "glass",
-//  "color": [1.0, 1.0, 1.0, 0.2],
-//  "drawstyle": "solid"
-//}
+// }
+
+{
+ name: "GEO",
+ index: "reflector_ypos",
+ valid_begin: [0.0, 0.0],
+ valid_end: [0.0, 0.0],
+ mother: "inner_surface",
+ type: "box",
+ size: [3.0, 0.5, 247.0 ],
+ position: [-1.5, 225.5, 0.0],
+ material: "glass",
+ color: [1.0, 1.0, 1.0, 0.2],
+ drawstyle: "solid"
+}
+{
+ "name": "GEO",
+ "index": "reflector_yneg",
+ "valid_begin": [0.0, 0.0],
+ "valid_end": [0.0, 0.0],
+ "mother": "inner_surface",
+ "type": "box",
+ "size": [3.0, 0.5, 247.0],
+ "position": [-1.5, -225.5, 0.0],
+ "material": "glass",
+ "color": [1.0, 1.0, 1.0, 0.2],
+ "drawstyle": "solid"
+}
 
 
 {

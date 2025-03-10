@@ -11,8 +11,8 @@
 /rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
 
 #/rat/db/set GEO[PTP] box_length 1 # in mm
-/rat/db/set GEO[PTP] position [-2.9,0.0,0.0] # in mm
-/rat/db/set GEO[PTP] size [0.2,225.0,247.5]
+/rat/db/set GEO[PTP] position [-2.999,0.0,0.0] # in mm
+/rat/db/set GEO[PTP] size [0.002,225.0,247.5]
 
 # this part is the optical surface
 # sigma_alpha works with "unified" model
