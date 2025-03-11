@@ -5,15 +5,16 @@
 #include <G4VPhysicalVolume.hh>
 #include <G4VisAttributes.hh>
 #include <RAT/GeoFactory.hh>
-#include <vector>
 #include <string>
+#include <vector>
+
 #include "G4OpticalSurface.hh"
 
 namespace PTP {
 
 class GeoPTPCoatingFactory : public RAT::GeoFactory {
  public:
-  GeoPTPCoatingFactory() : GeoFactory("PTPCoating") {};
+  GeoPTPCoatingFactory() : GeoFactory("PTPCoating"){};
   virtual G4VPhysicalVolume* Construct(RAT::DBLinkPtr table);
 
  protected:
@@ -21,7 +22,6 @@ class GeoPTPCoatingFactory : public RAT::GeoFactory {
   void SetVis(G4LogicalVolume* volume, std::vector<double> color);
 };
 
-}  // namespace RAT
+}  // namespace PTP
 
 #endif  // __RAT_GeoPTPCoatingFactory__
-

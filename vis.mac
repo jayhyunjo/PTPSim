@@ -7,7 +7,7 @@
 
 /rat/db/set GEO[inner_surface] material "LAr"
 
-/rat/db/set GEO[substrate] material "Acrylic"
+/rat/db/set GEO[substrate] material "eljen_WLSP"
 /rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
 
 # this part is the optical surface
@@ -41,7 +41,7 @@
 /rat/db/set GEO[genVol] size [0.001,225.0,247.5]
 /rat/db/set GEO[genVol] position [-12.701,0.0,0.0]
 
-/rat/db/set GEO[WLS] material "eljen_WLSP"
+/rat/db/set GEO[WLS] material "Acrylic"
 /rat/db/set GEO[WLS] color [0.0,0.0,1.0,0.1]
 
 #/rat/db/set GEO[reflector_zpos] material "LAr"

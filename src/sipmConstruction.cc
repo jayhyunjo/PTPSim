@@ -4,10 +4,10 @@
 #include <G4Region.hh>
 #include <G4VisAttributes.hh>
 #include <RAT/GLG4PMTOpticalModel.hh>
-#include <sipmConstruction.hh>
 #include <RAT/Log.hh>
 #include <RAT/Materials.hh>
 #include <algorithm>
+#include <sipmConstruction.hh>
 
 namespace RAT {
 
@@ -115,8 +115,8 @@ G4VSolid *sipmConstruction::BuildSolid(const std::string &name) {
 }
 
 G4PVPlacement *sipmConstruction::PlacePMT(G4RotationMatrix *pmtrot, G4ThreeVector pmtpos, const std::string &name,
-                                           G4LogicalVolume *logi_pmt, G4VPhysicalVolume *mother_phys, bool booleanSolid,
-                                           int copyNo) {
+                                          G4LogicalVolume *logi_pmt, G4VPhysicalVolume *mother_phys, bool booleanSolid,
+                                          int copyNo) {
   G4PVPlacement *body_phys = new G4PVPlacement(pmtrot, pmtpos, name, logi_pmt, mother_phys, booleanSolid, copyNo);
 
   // photocathode surface

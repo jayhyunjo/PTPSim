@@ -1,5 +1,5 @@
 #pragma once
-#define CRY_Enabled 
+#define CRY_Enabled
 #define TENSORFLOW_Enabled 0
 #define NLOPT_Enabled 0
 

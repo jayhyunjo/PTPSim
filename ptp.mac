@@ -28,7 +28,7 @@
 
 /rat/db/set GEO[inner_surface] material "LAr"
 
-/rat/db/set GEO[substrate] material "Acrylic"
+/rat/db/set GEO[substrate] material "eljen_WLSP" ## default: Acrylic
 /rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
 
 # this part is the optical surface
@@ -50,6 +50,9 @@
 #/rat/db/set GEO[PTP] position [-2.996,0.0,0.0] # in mm
 #/rat/db/set GEO[PTP] box_length 0.004 # 4um thickness
 
+#/rat/db/set GEO[PTP] position [-2.95,0.0,0.0] # in mm
+#/rat/db/set GEO[PTP] box_length 0.050 # 50um thickness
+
 #/rat/db/set GEO[PTP] position [7.5,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] coating_material "PTP"
 /rat/db/set GEO[PTP] material "PTP"
@@ -62,13 +65,7 @@
 
 #/rat/db/set GEO[sipm_side] efficiency_correction 1
 
-#/rat/db/set GEO[reflector_zpos] material "LAr"
-#/rat/db/set GEO[reflector_zneg] material "LAr"
-#/rat/db/set GEO[reflector_ypos] material "LAr"
-#/rat/db/set GEO[reflector_yneg] material "LAr"
-#/rat/db/set GEO[reflector] material "LAr"
-
-/rat/db/set GEO[WLS] material "eljen_WLSP"
+/rat/db/set GEO[WLS] material "Acrylic" ## default: eljen_WLSP
 /rat/db/set GEO[WLS] color [0.0,1.0,0.0,0.1]
 
 
@@ -98,5 +95,5 @@
 
 
 # Begin the run (1 event)
-/run/beamOn 10
+/run/beamOn 1000
 
