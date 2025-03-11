@@ -88,7 +88,7 @@ drawstyle: "solid"
   coating_material: "PTP",
   material: "PTP",
   finish: "polished",
-  surface_type: "dielectric_dielectric",
+  surfaceType: "dielectric_dielectric",
   sigma_alpha: 0.0,
   coating_color:[1.0, 0.0, 0.0, 0.3] // red
   drawstyle: "solid"
