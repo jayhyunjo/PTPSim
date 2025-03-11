@@ -105,7 +105,6 @@
 #/rat/db/set GEO[reflector2_yneg] material "Reflect"
 #/rat/db/set GEO[reflector2] material "Reflect"
 
-
 /run/initialize
 /tracking/storeTrajectory 1
 
