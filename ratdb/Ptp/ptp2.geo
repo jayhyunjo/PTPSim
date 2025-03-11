@@ -54,22 +54,6 @@ drawstyle: "solid"
   drawstyle: "solid"
 }
 
-// Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
-// Positioned on the leftmost side of the layered structure.
-// It extends from x = -12.502 to -12.5 mm (center at -12.501 mm).
-// {
-// name: "GEO",
-// index: "PTP",
-// valid_begin: [0.0, 0.0],
-// valid_end: [0.0, 0.0],
-// mother: "substrate",
-// type: "box",
-// size: [0.1, 300.0, 300.0], // increasing thickness from 0.002 to 0.2mm for temporary testing
-// position: [-12.6, 0.0, 0.0],
-// material: "PTP",
-// color:[1.0, 0.0, 0.0, 0.3] // red
-// drawstyle: "solid"
-// }
 
 // Daughter layer: PTP (0.002 mm thick → half-thickness = 0.001 mm)
 // Positioned on the leftmost side of the layered structure.
@@ -127,9 +111,9 @@ drawstyle: "solid"
 //  drawstyle: "solid"
 //}
 
-// // Daughter layer: Reflector (1 mm thick → half-thickness = 0.5 mm)
-// // Positioned on the far right, leaving no gap between WLS and Reflector.
-// // Its center is at x = 2.0 mm, so it extends from 1.5 to 2.5 mm.
+// Daughter layer: Reflector (1 mm thick → half-thickness = 0.5 mm)
+// Positioned on the far right, leaving no gap between WLS and Reflector.
+// Its center is at x = 2.0 mm, so it extends from 1.5 to 2.5 mm.
 
  {
   name: "GEO",
@@ -139,13 +123,8 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "box",
   size: [0.5, 225.0, 247.5],
-  //type: "PTPCoating"
-  //box_length: 0.5,
-  //box_width: 225.0,
-  //box_thickness: 247.5,
   position: [2.0, 0.0, 0.0],
   material: "glass",
-  //material: "vikuiti_esr", // predefined in ratpak-two
   color:[1.0, 1.0, 1.0, 0.2] 
   coating_color:[1.0, 1.0, 1.0, 0.2]
   drawstyle: "solid"
@@ -159,13 +138,8 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "box",
   size: [3.0, 225.0, 0.5],
-  //type: "PTPCoating"
-  //box_length: 3.0,
-  //box_width: 225.0,
-  //box_thickness: 0.5,
   position: [-1.5, 0.0, 248.0],
   material: "glass",
-  //material: "vikuiti_esr", // predefined in ratpak-two
   color: [1.0, 1.0, 1.0, 0.2],
   coating_color:[1.0, 1.0, 1.0, 0.2]
   drawstyle: "solid"
@@ -179,10 +153,6 @@ drawstyle: "solid"
    mother: "inner_surface",
    type: "box",
    size: [3.0, 225.0 , 0.5],
-   //type: "PTPCoating"
-   //box_length: 3.0,
-   //box_width: 225.0,
-   //box_thickness: 0.5,
    position: [-1.5, 0.0, -252],
    material: "glass",
    color: [1.0, 1.0, 1.0, 0.2] 
@@ -198,13 +168,8 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "box",
   size: [3.0, 0.5, 247.0 ],
-  //type: "PTPCoating"
-  //box_length: 3.0,
-  //box_width: 0.5,
-  //box_thickness: 247.0,
   position: [-1.5, 225.5, 0.0],
   material: "glass",
-  //material: "vikuiti_esr", // predefined in ratpak-two
   color: [1.0, 1.0, 1.0, 0.2],
   coating_color:[1.0, 1.0, 1.0, 0.2]
   drawstyle: "solid"
@@ -218,13 +183,8 @@ drawstyle: "solid"
   mother: "inner_surface",
   type: "box",
   size: [3.0, 0.5, 247.0],
-  //type: "PTPCoating"
-  //box_length: 3.0,
-  //box_width: 0.5,
-  //box_thickness: 247.0,
   position: [-1.5, -225.5, 0.0],
   material: "glass",
-  //material: "vikuiti_esr", // predefined in ratpak-two
   color: [1.0, 1.0, 1.0, 0.2],
   coating_color:[1.0, 1.0, 1.0, 0.2]
   drawstyle: "solid"
@@ -252,9 +212,9 @@ drawstyle: "solid"
 
 
 
-//////////////////////////////////////////////////////////////////////////
-/// Putting SiPMs and reflector at the first (right next to pTP) layer
-//{
+// ////////////////////////////////////////////////////////////////////////
+// // Putting SiPMs and reflector at the first (right next to pTP) layer
+// {
 //  name: "GEO",
 //  index: "sipm_side2",
 //  valid_begin: [0.0, 0.0],
@@ -267,9 +227,9 @@ drawstyle: "solid"
 //  pos_table: "PMTINFO_sipm2", 
 //  color: [0.8, 0.8, 0.8, 0.3] 
 //  orientation: "manual",
-//}
-//
-//{
+// }
+
+// {
 //  name: "GEO",
 //  index: "reflector2",
 //  valid_begin: [0.0, 0.0],
@@ -279,7 +239,6 @@ drawstyle: "solid"
 //  size: [0.5, 225.0, 247.5],
 //  position: [-6.0, 0.0, 0.0],
 //  material: "glass",
-//  //material: "vikuiti_esr", // predefined in ratpak-two
 //  color:[1.0, 1.0, 1.0, 0.2] 
 //  drawstyle: "solid"
 // }
@@ -293,11 +252,10 @@ drawstyle: "solid"
 //  size: [3.0, 225.0, 0.5],
 //  position: [-9.5, 0.0, 248.0],
 //  material: "glass",
-//  //material: "vikuiti_esr", // predefined in ratpak-two
 //  color: [1.0, 1.0, 1.0, 0.2],
 //  drawstyle: "solid"
 // }
-//
+
 // {
 //  name: "GEO",
 //  index: "reflector2_zneg",
@@ -308,11 +266,10 @@ drawstyle: "solid"
 //  size: [3.0, 225.0, 0.5],
 //  position: [-9.5, 0.0, -252.0],
 //  material: "glass",
-//  //material: "vikuiti_esr", // predefined in ratpak-two
 //  color: [1.0, 1.0, 1.0, 0.2],
 //  drawstyle: "solid"
 // }
-// 
+
 // {
 //  name: "GEO",
 //  index: "reflector2_ypos",
@@ -323,7 +280,6 @@ drawstyle: "solid"
 //  size: [3.0, 0.5, 247.0 ],
 //  position: [-9.5, 225.5, 0.0],
 //  material: "glass",
-//  //material: "vikuiti_esr", // predefined in ratpak-two
 //  color: [1.0, 1.0, 1.0, 0.2],
 //  drawstyle: "solid"
 // }
@@ -337,7 +293,6 @@ drawstyle: "solid"
 //  size: [3.0, 0.5, 247.0],
 //  position: [-9.5, -225.5, 0.0],
 //  material: "glass",
-//  //material: "vikuiti_esr", // predefined in ratpak-two
 //  color: [1.0, 1.0, 1.0, 0.2],
 //  drawstyle: "solid"
 // }

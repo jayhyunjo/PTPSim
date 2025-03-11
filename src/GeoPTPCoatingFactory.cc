@@ -76,19 +76,17 @@ G4OpticalSurfaceModel GetOpticalSurfaceModel(const std::string& modelStr) {
 }
 
 G4SurfaceType GetSurfaceType(const std::string& typeStr) {
-    static const std::map<std::string, G4SurfaceType> typeMap = {
-        {"dielectric_metal", dielectric_metal},
-        {"dielectric_dielectric", dielectric_dielectric},
-        {"firsov", firsov},
-        {"x_ray", x_ray}
-    };
+  static const std::map<std::string, G4SurfaceType> typeMap = {{"dielectric_metal", dielectric_metal},
+                                                               {"dielectric_dielectric", dielectric_dielectric},
+                                                               {"firsov", firsov},
+                                                               {"x_ray", x_ray}};
 
-    auto it = typeMap.find(typeStr);
-    if (it != typeMap.end()) {
-        return it->second;
-    } else {
-        throw std::runtime_error("Invalid G4SurfaceType string: " + typeStr);
-    }
+  auto it = typeMap.find(typeStr);
+  if (it != typeMap.end()) {
+    return it->second;
+  } else {
+    throw std::runtime_error("Invalid G4SurfaceType string: " + typeStr);
+  }
 }
 
 G4VPhysicalVolume* GeoPTPCoatingFactory::Construct(RAT::DBLinkPtr table) {

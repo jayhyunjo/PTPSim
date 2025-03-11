@@ -42,14 +42,14 @@
 /rat/db/set GEO[PTP] polish 1.0
 /rat/db/set GEO[PTP] sigma_alpha 0.0
 
-/rat/db/set GEO[PTP] position [-2.996,0.0,0.0] # in mm
-/rat/db/set GEO[PTP] box_length 0.004 # 2um thickness
+/rat/db/set GEO[PTP] position [-2.998,0.0,0.0] # in mm
+/rat/db/set GEO[PTP] box_length 0.002 # 2um thickness
 
-#/rat/db/set GEO[PTP] position [-2.9996,0.0,0.0] # in mm
-#/rat/db/set GEO[PTP] box_length 0.0004 # 0.5um thickness
+# /rat/db/set GEO[PTP] position [-2.9996,0.0,0.0] # in mm
+# /rat/db/set GEO[PTP] box_length 0.0004 # 0.4um thickness
 
-#/rat/db/set GEO[PTP] position [-2.996,0.0,0.0] # in mm
-#/rat/db/set GEO[PTP] box_length 0.004 # 4um thickness
+# /rat/db/set GEO[PTP] position [-2.996,0.0,0.0] # in mm
+# /rat/db/set GEO[PTP] box_length 0.004 # 4um thickness
 
 #/rat/db/set GEO[PTP] position [-2.95,0.0,0.0] # in mm
 #/rat/db/set GEO[PTP] box_length 0.050 # 50um thickness
@@ -74,6 +74,12 @@
 /rat/db/set GEO[reflector_zneg] coating_material "Reflect"
 /rat/db/set GEO[reflector_ypos] coating_material "Reflect"
 /rat/db/set GEO[reflector_yneg] coating_material "Reflect"
+
+# /rat/db/set GEO[reflector2] coating_material "Reflect"
+# /rat/db/set GEO[reflector2_zpos] coating_material "Reflect"
+# /rat/db/set GEO[reflector2_zneg] coating_material "Reflect"
+# /rat/db/set GEO[reflector2_ypos] coating_material "Reflect"
+# /rat/db/set GEO[reflector2_yneg] coating_material "Reflect"
 
 #/rat/db/set GEO[reflector] surface_type "dielectric_metal"
 #/rat/db/set GEO[reflector_zpos] surface_type "dielectric_metal"
