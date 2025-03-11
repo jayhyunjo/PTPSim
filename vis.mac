@@ -7,7 +7,7 @@
 
 /rat/db/set GEO[inner_surface] material "LAr"
 
-/rat/db/set GEO[substrate] material "eljen_WLSP"
+/rat/db/set GEO[substrate] material "Acrylic"
 /rat/db/set GEO[substrate] color [0.0,1.0,0.0,0.1]
 
 # this part is the optical surface
@@ -15,8 +15,9 @@
 # poslish works with "glisur" model
 # finish options are here: https://apc.u-paris.fr/~franco/g4doxy/html/G4OpticalSurface_8hh.html
 
-/rat/db/set GEO[PTP] finish "polished"
+/rat/db/set GEO[PTP] finish "ground"
 /rat/db/set GEO[PTP] model "unified"
+/rat/db/set GEO[PTP] surface_type "dielectric_dielectric"
 /rat/db/set GEO[PTP] polish 1.0
 /rat/db/set GEO[PTP] sigma_alpha 0.0
 
@@ -41,15 +42,20 @@
 /rat/db/set GEO[genVol] size [0.001,225.0,247.5]
 /rat/db/set GEO[genVol] position [-12.701,0.0,0.0]
 
-/rat/db/set GEO[WLS] material "Acrylic"
-/rat/db/set GEO[WLS] color [0.0,0.0,1.0,0.1]
+/rat/db/set GEO[WLS] material "eljen_WLSP"
+/rat/db/set GEO[WLS] color [0.0,1.0,1.0,0.1]
 
-#/rat/db/set GEO[reflector_zpos] material "LAr"
-#/rat/db/set GEO[reflector_zneg] material "LAr"
-#/rat/db/set GEO[reflector_ypos] material "LAr"
-#/rat/db/set GEO[reflector_yneg] material "LAr"
-#/rat/db/set GEO[reflector] material "LAr"
+/rat/db/set GEO[reflector_zpos] material "Reflect"
+/rat/db/set GEO[reflector_zneg] material "Reflect"
+/rat/db/set GEO[reflector_ypos] material "Reflect"
+/rat/db/set GEO[reflector_yneg] material "Reflect"
+/rat/db/set GEO[reflector] material "Reflect"
 
+#/rat/db/set GEO[reflector2_zpos] material "Reflect"
+#/rat/db/set GEO[reflector2_zneg] material "Reflect"
+#/rat/db/set GEO[reflector2_ypos] material "Reflect"
+#/rat/db/set GEO[reflector2_yneg] material "Reflect"
+#/rat/db/set GEO[reflector2] material "Reflect"
 
 /run/initialize
 
@@ -105,11 +111,9 @@
 #/generator/pos/set -12.701 0.0 0.0
 #/generator/pos/set -12.6 0.0 0.0
 
-
 /generator/add combo pbomb:fill:poisson
-/generator/vtx/set 1 128 # 1000 photon, 128nm
+/generator/vtx/set 100 128 # 1000 photon, 128nm
 /generator/pos/set -12.701 0.0 0.0
-
 
 ##### RUN ###########
 /run/beamOn 10
