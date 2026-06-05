@@ -8,3 +8,5 @@ install/*
 build/*
 Config.hh
 ptp.sh
+snapshots/
+*.png

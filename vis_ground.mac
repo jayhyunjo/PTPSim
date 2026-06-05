@@ -15,11 +15,13 @@
 # poslish works with "glisur" model
 # finish options are here: https://apc.u-paris.fr/~franco/g4doxy/html/G4OpticalSurface_8hh.html
 
-# Polished baseline: do not override the geometry's `finish: "polished"`.
+# Ground (truly rough) variant: ~5.7 deg micro-facet RMS at the pTP/LAr interface.
+# Tune sigma_alpha to match whatever produced the existing ground_*.root files.
+/rat/db/set GEO[PTP] finish "ground"
 /rat/db/set GEO[PTP] model "unified"
 /rat/db/set GEO[PTP] surface_type "dielectric_dielectric"
 /rat/db/set GEO[PTP] polish 1.0
-/rat/db/set GEO[PTP] sigma_alpha 0.0
+/rat/db/set GEO[PTP] sigma_alpha 0.1
 
 # VISUALIZATION-ONLY EXAGGERATION (500x): pTP rendered as 1 mm (vs physical 2 um)
 # so the layer is clearly visible in the OGL window. Anchored at substrate's
@@ -29,13 +31,6 @@
 /rat/db/set GEO[PTP] position [-2.5,0.0,0.0] # in mm (was -2.998 for 2um)
 /rat/db/set GEO[PTP] box_length 0.5          # half-length (was 0.002 for 2um)
 
-#/rat/db/set GEO[PTP] position [-2.9992,0.0,0.0] # in mm
-#/rat/db/set GEO[PTP] size [0.002,225.0,247.5] # 0.8um thickness
-
-#/rat/db/set GEO[PTP] position [-2.996,0.0,0.0] # in mm
-#/rat/db/set GEO[PTP] size [0.004,225.0,247.5] # 4um thickness
-
-#/rat/db/set GEO[PTP] position [7.5,0.0,0.0] # in mm
 /rat/db/set GEO[PTP] coating_material "PTP"
 /rat/db/set GEO[PTP] material "PTP"
 
@@ -58,21 +53,12 @@
 # tan vacuum). The ratdb `color` field is ignored. We override after
 # /run/initialize via /vis/geometry/set/colour below.
 
-#/rat/db/set GEO[reflector2_zpos] material "Reflect"
-#/rat/db/set GEO[reflector2_zneg] material "Reflect"
-#/rat/db/set GEO[reflector2_ypos] material "Reflect"
-#/rat/db/set GEO[reflector2_yneg] material "Reflect"
-#/rat/db/set GEO[reflector2] material "Reflect"
-
 /run/initialize
-
-#/tracking/storeTrajectory 1
 
 ##### Visualization ##########################
 
 /vis/open OGLSQt
-# Publication background: very light gray (easier on the eyes than pure white,
-# still prints cleanly). Use `1 1 1` if you want pure white.
+# Publication background: very light gray. Use `1 1 1` for pure white.
 /vis/viewer/set/background 0.97 0.97 0.97
 
 # Create the scene FIRST, so subsequent /vis/geometry/set/* commands have a
@@ -88,10 +74,10 @@
 /vis/geometry/set/forceSolid sipm_side_vacuum_logic -1 true
 
 # --- color optical-photon trajectories by initial kinetic energy ---
-# Wong color-blind-safe palette (https://www.nature.com/articles/nmeth.1618):
-#   VUV primaries     (~128 nm, 6.5-10.5 eV)  -> deep blue   (#0072B2)
-#   pTP re-emission   (~310-400 nm, 3.0-6.5 eV) -> vermillion (#D55E00)
-#   WLS re-emission   (~410-550 nm, 2.2-3.0 eV) -> bluish-green (#009E73), trapped
+# Wong color-blind-safe palette:
+#   VUV primaries     (~128 nm)        -> deep blue   (#0072B2)
+#   pTP re-emission   (~310-400 nm)    -> vermillion  (#D55E00)
+#   WLS re-emission   (~410-550 nm)    -> bluish-green (#009E73), trapped
 # Use setLineColourRGBA (not setLineColour) so floats are parsed as RGB,
 # not looked up as a named-color key.
 /vis/modeling/trajectories/create/drawByAttribute
@@ -126,7 +112,7 @@
 
 # Configuration.
 /vis/set/textColour 0.10 0.10 0.10
-/vis/scene/add/text2D -0.97  0.95 14 0 0 Configuration: polished pTP
+/vis/scene/add/text2D -0.97  0.95 14 0 0 Configuration: ground pTP
 
 # Materials legend (each line colored to match the rendered volume).
 /vis/set/textColour 0.10 0.10 0.10
@@ -151,42 +137,19 @@
 /vis/scene/add/text2D -0.97  0.11 14 0 0 WLS wavelength-shifted (430-490nm)
 /vis/set/textColour 0.10 0.10 0.10
 
-## Cut a plane through the detector
-#/vis/viewer/addCutawayPlane 0 0 0 cm 1 0 0
-#/vis/viewer/addCutawayPlane 0 -100 0 cm 0 1 0
-#/vis/viewer/set/viewpointThetaPhi -90 0
-#/vis/viewer/zoomTo 10
-#/vis/viewer/panTo 10 0
 /vis/viewer/set/upVector 0.0 0.0 1.0
 /vis/viewer/set/viewpointThetaPhi -90 135
 /vis/scene/add/scale
 /vis/viewer/set/viewpointVector 0 -1 0
-#/vis/scene/add/axes
 
 # cutaway on y=0 to see photons threading the stack along x
 /vis/viewer/addCutawayPlane 0 0 0 mm 0 1 0
 
 /rat/proc count
 /rat/procset update 1
-/rat/proclast outroot                                                                                                                                
+/rat/proclast outroot
 
 ##### GENERATORS #################
-#/generator/add combo gun:point:poisson
-#/generator/vtx/set e- 1.0 0.0 0.0 1.0
-#/generator/pos/set -200.0 0.0 0.0
-
-##### GENERATORS #################
-#/generator/add combo pbomb:point:poisson
-#/generator/add combo pbomb:fill:poisson
-#/generator/add combo gun:point:poisson
-#/generator/add combo gun:fill:poisson
-
-#/generator/vtx/set opticalphoton 1.0 0.0 0.0 128nm
-#/generator/pos/set -5.5 0.0 0.0
-#/generator/vtx/set 1 128 # 1000 photon, 128nm
-#/generator/pos/set -20.0 0.0 0.0
-#/generator/pos/set -12.701 0.0 0.0
-#/generator/pos/set -12.6 0.0 0.0
 
 /generator/add combo pbomb:fill:poisson
 /generator/vtx/set 2 128 # 2 photons per event, 128 nm
@@ -196,8 +159,4 @@
 /run/beamOn 4 # 4 events x 2 photons = 8 forward-traceable photons
 
 # save a snapshot of the accumulated view
-/vis/ogl/export snapshots/polished.png
-
-
-
-
+/vis/ogl/export snapshots/ground.png
